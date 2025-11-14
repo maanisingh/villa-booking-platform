@@ -1,0 +1,66 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: villa-booking-mongodb
+    restart: always
+    environment:
+      MONGO_INITDB_DATABASE: loginSystem
+    ports:
+      - "27018:27017"
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - villa-network
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: villa-booking-backend
+    restart: always
+    ports:
+      - "9000:9000"
+    environment:
+      - PORT=9000
+      - MONGO_URI=mongodb://mongodb:27017/loginSystem
+      - JWT_SECRET=MySecretKey123
+      - JWT_EXPIRES_IN=1d
+      - PASSWORD_SECRET=your-32-byte-base64-or-random-key
+      - NODE_ENV=production
+    depends_on:
+      mongodb:
+        condition: service_healthy
+    networks:
+      - villa-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9000/api"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: villa-booking-frontend
+    restart: always
+    ports:
+      - "3010:80"
+    depends_on:
+      - backend
+    networks:
+      - villa-network
+
+volumes:
+  mongodb_data:
+
+networks:
+  villa-network:
+    driver: bridge
