@@ -1,0 +1,1404 @@
+{
+  "config": {
+    "configFile": "/root/villa-booking-platform/playwright.config.js",
+    "rootDir": "/root/villa-booking-platform/tests",
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 8
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "html",
+        {
+          "outputFolder": "playwright-report"
+        }
+      ],
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "test-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "/root/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 8
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/root/villa-booking-platform/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/root/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 8
+        },
+        "id": "firefox",
+        "name": "firefox",
+        "testDir": "/root/villa-booking-platform/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/root/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 8
+        },
+        "id": "webkit",
+        "name": "webkit",
+        "testDir": "/root/villa-booking-platform/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/root/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 8
+        },
+        "id": "Mobile Chrome",
+        "name": "Mobile Chrome",
+        "testDir": "/root/villa-booking-platform/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/root/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 8
+        },
+        "id": "Mobile Safari",
+        "name": "Mobile Safari",
+        "testDir": "/root/villa-booking-platform/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "shard": null,
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.56.1",
+    "workers": 8,
+    "webServer": {
+      "command": "echo \"Using live server at https://villas.alexandratechlab.com\"",
+      "timeout": 1000,
+      "reuseExistingServer": true
+    }
+  },
+  "suites": [
+    {
+      "title": "comprehensive-e2e.spec.js",
+      "file": "comprehensive-e2e.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Villa Booking Platform - Comprehensive E2E Tests",
+          "file": "comprehensive-e2e.spec.js",
+          "line": 11,
+          "column": 6,
+          "specs": [],
+          "suites": [
+            {
+              "title": "Issue 1: Owner Registration",
+              "file": "comprehensive-e2e.spec.js",
+              "line": 13,
+              "column": 8,
+              "specs": [
+                {
+                  "title": "should register new owner successfully",
+                  "ok": false,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 60000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "failed",
+                          "duration": 11021,
+                          "error": {
+                            "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('text=Registration successful')\nExpected: visible\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('text=Registration successful')\u001b[22m\n",
+                            "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('text=Registration successful')\nExpected: visible\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('text=Registration successful')\u001b[22m\n\n    at /root/villa-booking-platform/tests/comprehensive-e2e.spec.js:28:66",
+                            "location": {
+                              "file": "/root/villa-booking-platform/tests/comprehensive-e2e.spec.js",
+                              "column": 66,
+                              "line": 28
+                            },
+                            "snippet": "  26 |\n  27 |       // Wait for success message\n> 28 |       await expect(page.locator('text=Registration successful')).toBeVisible({ timeout: 10000 });\n     |                                                                  ^\n  29 |     });\n  30 |\n  31 |     test('should prevent duplicate email registration', async ({ page }) => {"
+                          },
+                          "errors": [
+                            {
+                              "location": {
+                                "file": "/root/villa-booking-platform/tests/comprehensive-e2e.spec.js",
+                                "column": 66,
+                                "line": 28
+                              },
+                              "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('text=Registration successful')\nExpected: visible\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('text=Registration successful')\u001b[22m\n\n\n  26 |\n  27 |       // Wait for success message\n> 28 |       await expect(page.locator('text=Registration successful')).toBeVisible({ timeout: 10000 });\n     |                                                                  ^\n  29 |     });\n  30 |\n  31 |     test('should prevent duplicate email registration', async ({ page }) => {\n    at /root/villa-booking-platform/tests/comprehensive-e2e.spec.js:28:66"
+                            }
+                          ],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2025-11-14T12:52:44.314Z",
+                          "annotations": [],
+                          "attachments": [
+                            {
+                              "name": "screenshot",
+                              "contentType": "image/png",
+                              "path": "/root/test-results/comprehensive-e2e-Villa-Bo-cd0a1-ster-new-owner-successfully-chromium/test-failed-1.png"
+                            },
+                            {
+                              "name": "video",
+                              "contentType": "video/webm",
+                              "path": "/root/test-results/comprehensive-e2e-Villa-Bo-cd0a1-ster-new-owner-successfully-chromium/video.webm"
+                            },
+                            {
+                              "name": "error-context",
+                              "contentType": "text/markdown",
+                              "path": "/root/test-results/comprehensive-e2e-Villa-Bo-cd0a1-ster-new-owner-successfully-chromium/error-context.md"
+                            }
+                          ],
+                          "errorLocation": {
+                            "file": "/root/villa-booking-platform/tests/comprehensive-e2e.spec.js",
+                            "column": 66,
+                            "line": 28
+                          }
+                        }
+                      ],
+                      "status": "unexpected"
+                    }
+                  ],
+                  "id": "b3ae7383dc427f9f1a7a-995db2434e17557b1355",
+                  "file": "comprehensive-e2e.spec.js",
+                  "line": 14,
+                  "column": 5
+                },
+                {
+                  "title": "should prevent duplicate email registration",
+                  "ok": false,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 60000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 1,
+                          "parallelIndex": 1,
+                          "status": "failed",
+                          "duration": 11058,
+                          "error": {
+                            "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('text=/already exists/i')\nExpected: visible\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('text=/already exists/i')\u001b[22m\n",
+                            "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('text=/already exists/i')\nExpected: visible\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('text=/already exists/i')\u001b[22m\n\n    at /root/villa-booking-platform/tests/comprehensive-e2e.spec.js:44:60",
+                            "location": {
+                              "file": "/root/villa-booking-platform/tests/comprehensive-e2e.spec.js",
+                              "column": 60,
+                              "line": 44
+                            },
+                            "snippet": "  42 |\n  43 |       // Should show error\n> 44 |       await expect(page.locator('text=/already exists/i')).toBeVisible({ timeout: 10000 });\n     |                                                            ^\n  45 |     });\n  46 |   });\n  47 |"
+                          },
+                          "errors": [
+                            {
+                              "location": {
+                                "file": "/root/villa-booking-platform/tests/comprehensive-e2e.spec.js",
+                                "column": 60,
+                                "line": 44
+                              },
+                              "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('text=/already exists/i')\nExpected: visible\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('text=/already exists/i')\u001b[22m\n\n\n  42 |\n  43 |       // Should show error\n> 44 |       await expect(page.locator('text=/already exists/i')).toBeVisible({ timeout: 10000 });\n     |                                                            ^\n  45 |     });\n  46 |   });\n  47 |\n    at /root/villa-booking-platform/tests/comprehensive-e2e.spec.js:44:60"
+                            }
+                          ],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2025-11-14T12:52:44.343Z",
+                          "annotations": [],
+                          "attachments": [
+                            {
+                              "name": "screenshot",
+                              "contentType": "image/png",
+                              "path": "/root/test-results/comprehensive-e2e-Villa-Bo-7c1f4-uplicate-email-registration-chromium/test-failed-1.png"
+                            },
+                            {
+                              "name": "video",
+                              "contentType": "video/webm",
+                              "path": "/root/test-results/comprehensive-e2e-Villa-Bo-7c1f4-uplicate-email-registration-chromium/video.webm"
+                            },
+                            {
+                              "name": "error-context",
+                              "contentType": "text/markdown",
+                              "path": "/root/test-results/comprehensive-e2e-Villa-Bo-7c1f4-uplicate-email-registration-chromium/error-context.md"
+                            }
+                          ],
+                          "errorLocation": {
+                            "file": "/root/villa-booking-platform/tests/comprehensive-e2e.spec.js",
+                            "column": 60,
+                            "line": 44
+                          }
+                        }
+                      ],
+                      "status": "unexpected"
+                    }
+                  ],
+                  "id": "b3ae7383dc427f9f1a7a-9f4d26ce87143910ac3b",
+                  "file": "comprehensive-e2e.spec.js",
+                  "line": 31,
+                  "column": 5
+                }
+              ]
+            },
+            {
+              "title": "Issue 2 & 3: Admin Dashboard & Stats",
+              "file": "comprehensive-e2e.spec.js",
+              "line": 48,
+              "column": 8,
+              "specs": [
+                {
+                  "title": "should login as admin successfully",
+                  "ok": false,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 60000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 2,
+                          "parallelIndex": 2,
+                          "status": "failed",
+                          "duration": 10733,
+                          "error": {
+                            "message": "TimeoutError: page.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('text=Admin Login')\u001b[22m\n",
+                            "stack": "TimeoutError: page.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('text=Admin Login')\u001b[22m\n\n    at /root/villa-booking-platform/tests/comprehensive-e2e.spec.js:53:18",
+                            "location": {
+                              "file": "/root/villa-booking-platform/tests/comprehensive-e2e.spec.js",
+                              "column": 18,
+                              "line": 53
+                            },
+                            "snippet": "  51 |\n  52 |       // Click admin quick login\n> 53 |       await page.click('text=Admin Login');\n     |                  ^\n  54 |\n  55 |       // Should auto-fill credentials\n  56 |       await expect(page.locator('input[type=\"email\"]')).toHaveValue('admin@gmail.com');"
+                          },
+                          "errors": [
+                            {
+                              "location": {
+                                "file": "/root/villa-booking-platform/tests/comprehensive-e2e.spec.js",
+                                "column": 18,
+                                "line": 53
+                              },
+                              "message": "TimeoutError: page.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('text=Admin Login')\u001b[22m\n\n\n  51 |\n  52 |       // Click admin quick login\n> 53 |       await page.click('text=Admin Login');\n     |                  ^\n  54 |\n  55 |       // Should auto-fill credentials\n  56 |       await expect(page.locator('input[type=\"email\"]')).toHaveValue('admin@gmail.com');\n    at /root/villa-booking-platform/tests/comprehensive-e2e.spec.js:53:18"
+                            }
+                          ],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2025-11-14T12:52:44.214Z",
+                          "annotations": [],
+                          "attachments": [
+                            {
+                              "name": "screenshot",
+                              "contentType": "image/png",
+                              "path": "/root/test-results/comprehensive-e2e-Villa-Bo-639cd-login-as-admin-successfully-chromium/test-failed-1.png"
+                            },
+                            {
+                              "name": "video",
+                              "contentType": "video/webm",
+                              "path": "/root/test-results/comprehensive-e2e-Villa-Bo-639cd-login-as-admin-successfully-chromium/video.webm"
+                            },
+                            {
+                              "name": "error-context",
+                              "contentType": "text/markdown",
+                              "path": "/root/test-results/comprehensive-e2e-Villa-Bo-639cd-login-as-admin-successfully-chromium/error-context.md"
+                            }
+                          ],
+                          "errorLocation": {
+                            "file": "/root/villa-booking-platform/tests/comprehensive-e2e.spec.js",
+                            "column": 18,
+                            "line": 53
+                          }
+                        }
+                      ],
+                      "status": "unexpected"
+                    }
+                  ],
+                  "id": "b3ae7383dc427f9f1a7a-98ab73b3a69ac8fc9207",
+                  "file": "comprehensive-e2e.spec.js",
+                  "line": 49,
+                  "column": 5
+                },
+                {
+                  "title": "should load villa stats without 500 error",
+                  "ok": false,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 60000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 3,
+                          "parallelIndex": 3,
+                          "status": "failed",
+                          "duration": 10710,
+                          "error": {
+                            "message": "TimeoutError: page.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('text=Admin Login')\u001b[22m\n",
+                            "stack": "TimeoutError: page.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('text=Admin Login')\u001b[22m\n\n    at /root/villa-booking-platform/tests/comprehensive-e2e.spec.js:68:18",
+                            "location": {
+                              "file": "/root/villa-booking-platform/tests/comprehensive-e2e.spec.js",
+                              "column": 18,
+                              "line": 68
+                            },
+                            "snippet": "  66 |       // Login as admin first\n  67 |       await page.goto(FRONTEND_URL);\n> 68 |       await page.click('text=Admin Login');\n     |                  ^\n  69 |       await page.click('button[type=\"submit\"]:has-text(\"Sign In\")');\n  70 |\n  71 |       // Wait for dashboard"
+                          },
+                          "errors": [
+                            {
+                              "location": {
+                                "file": "/root/villa-booking-platform/tests/comprehensive-e2e.spec.js",
+                                "column": 18,
+                                "line": 68
+                              },
+                              "message": "TimeoutError: page.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('text=Admin Login')\u001b[22m\n\n\n  66 |       // Login as admin first\n  67 |       await page.goto(FRONTEND_URL);\n> 68 |       await page.click('text=Admin Login');\n     |                  ^\n  69 |       await page.click('button[type=\"submit\"]:has-text(\"Sign In\")');\n  70 |\n  71 |       // Wait for dashboard\n    at /root/villa-booking-platform/tests/comprehensive-e2e.spec.js:68:18"
+                            }
+                          ],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2025-11-14T12:52:44.199Z",
+                          "annotations": [],
+                          "attachments": [
+                            {
+                              "name": "screenshot",
+                              "contentType": "image/png",
+                              "path": "/root/test-results/comprehensive-e2e-Villa-Bo-a992a-lla-stats-without-500-error-chromium/test-failed-1.png"
+                            },
+                            {
+                              "name": "video",
+                              "contentType": "video/webm",
+                              "path": "/root/test-results/comprehensive-e2e-Villa-Bo-a992a-lla-stats-without-500-error-chromium/video.webm"
+                            },
+                            {
+                              "name": "error-context",
+                              "contentType": "text/markdown",
+                              "path": "/root/test-results/comprehensive-e2e-Villa-Bo-a992a-lla-stats-without-500-error-chromium/error-context.md"
+                            }
+                          ],
+                          "errorLocation": {
+                            "file": "/root/villa-booking-platform/tests/comprehensive-e2e.spec.js",
+                            "column": 18,
+                            "line": 68
+                          }
+                        }
+                      ],
+                      "status": "unexpected"
+                    }
+                  ],
+                  "id": "b3ae7383dc427f9f1a7a-c4e95c8acd8a783b91c3",
+                  "file": "comprehensive-e2e.spec.js",
+                  "line": 65,
+                  "column": 5
+                },
+                {
+                  "title": "should display villa list",
+                  "ok": false,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 60000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 4,
+                          "parallelIndex": 4,
+                          "status": "failed",
+                          "duration": 10687,
+                          "error": {
+                            "message": "TimeoutError: page.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('text=Admin Login')\u001b[22m\n",
+                            "stack": "TimeoutError: page.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('text=Admin Login')\u001b[22m\n\n    at /root/villa-booking-platform/tests/comprehensive-e2e.spec.js:95:18",
+                            "location": {
+                              "file": "/root/villa-booking-platform/tests/comprehensive-e2e.spec.js",
+                              "column": 18,
+                              "line": 95
+                            },
+                            "snippet": "  93 |       // Login as admin\n  94 |       await page.goto(FRONTEND_URL);\n> 95 |       await page.click('text=Admin Login');\n     |                  ^\n  96 |       await page.click('button[type=\"submit\"]:has-text(\"Sign In\")');\n  97 |\n  98 |       await page.waitForURL(/.*admin-dashboard/, { timeout: 10000 });"
+                          },
+                          "errors": [
+                            {
+                              "location": {
+                                "file": "/root/villa-booking-platform/tests/comprehensive-e2e.spec.js",
+                                "column": 18,
+                                "line": 95
+                              },
+                              "message": "TimeoutError: page.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('text=Admin Login')\u001b[22m\n\n\n  93 |       // Login as admin\n  94 |       await page.goto(FRONTEND_URL);\n> 95 |       await page.click('text=Admin Login');\n     |                  ^\n  96 |       await page.click('button[type=\"submit\"]:has-text(\"Sign In\")');\n  97 |\n  98 |       await page.waitForURL(/.*admin-dashboard/, { timeout: 10000 });\n    at /root/villa-booking-platform/tests/comprehensive-e2e.spec.js:95:18"
+                            }
+                          ],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2025-11-14T12:52:44.171Z",
+                          "annotations": [],
+                          "attachments": [
+                            {
+                              "name": "screenshot",
+                              "contentType": "image/png",
+                              "path": "/root/test-results/comprehensive-e2e-Villa-Bo-ccb0c-s-should-display-villa-list-chromium/test-failed-1.png"
+                            },
+                            {
+                              "name": "video",
+                              "contentType": "video/webm",
+                              "path": "/root/test-results/comprehensive-e2e-Villa-Bo-ccb0c-s-should-display-villa-list-chromium/video.webm"
+                            },
+                            {
+                              "name": "error-context",
+                              "contentType": "text/markdown",
+                              "path": "/root/test-results/comprehensive-e2e-Villa-Bo-ccb0c-s-should-display-villa-list-chromium/error-context.md"
+                            }
+                          ],
+                          "errorLocation": {
+                            "file": "/root/villa-booking-platform/tests/comprehensive-e2e.spec.js",
+                            "column": 18,
+                            "line": 95
+                          }
+                        }
+                      ],
+                      "status": "unexpected"
+                    }
+                  ],
+                  "id": "b3ae7383dc427f9f1a7a-e8c449ec564c077bfcb3",
+                  "file": "comprehensive-e2e.spec.js",
+                  "line": 92,
+                  "column": 5
+                }
+              ]
+            },
+            {
+              "title": "Issue 4: Owner Login & LocalStorage ID",
+              "file": "comprehensive-e2e.spec.js",
+              "line": 111,
+              "column": 8,
+              "specs": [
+                {
+                  "title": "should login owner and save ID to localStorage",
+                  "ok": false,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 60000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 5,
+                          "parallelIndex": 5,
+                          "status": "failed",
+                          "duration": 10787,
+                          "error": {
+                            "message": "TimeoutError: page.fill: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('input[type=\"email\"]')\u001b[22m\n",
+                            "stack": "TimeoutError: page.fill: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('input[type=\"email\"]')\u001b[22m\n\n    at /root/villa-booking-platform/tests/comprehensive-e2e.spec.js:121:18",
+                            "location": {
+                              "file": "/root/villa-booking-platform/tests/comprehensive-e2e.spec.js",
+                              "column": 18,
+                              "line": 121
+                            },
+                            "snippet": "  119 |\n  120 |       // Fill credentials (use previously created test owner)\n> 121 |       await page.fill('input[type=\"email\"]', testOwnerEmail);\n      |                  ^\n  122 |       await page.fill('input[type=\"password\"]', testOwnerPassword);\n  123 |\n  124 |       // Submit"
+                          },
+                          "errors": [
+                            {
+                              "location": {
+                                "file": "/root/villa-booking-platform/tests/comprehensive-e2e.spec.js",
+                                "column": 18,
+                                "line": 121
+                              },
+                              "message": "TimeoutError: page.fill: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('input[type=\"email\"]')\u001b[22m\n\n\n  119 |\n  120 |       // Fill credentials (use previously created test owner)\n> 121 |       await page.fill('input[type=\"email\"]', testOwnerEmail);\n      |                  ^\n  122 |       await page.fill('input[type=\"password\"]', testOwnerPassword);\n  123 |\n  124 |       // Submit\n    at /root/villa-booking-platform/tests/comprehensive-e2e.spec.js:121:18"
+                            }
+                          ],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2025-11-14T12:52:44.225Z",
+                          "annotations": [],
+                          "attachments": [
+                            {
+                              "name": "screenshot",
+                              "contentType": "image/png",
+                              "path": "/root/test-results/comprehensive-e2e-Villa-Bo-b72d1-and-save-ID-to-localStorage-chromium/test-failed-1.png"
+                            },
+                            {
+                              "name": "video",
+                              "contentType": "video/webm",
+                              "path": "/root/test-results/comprehensive-e2e-Villa-Bo-b72d1-and-save-ID-to-localStorage-chromium/video.webm"
+                            },
+                            {
+                              "name": "error-context",
+                              "contentType": "text/markdown",
+                              "path": "/root/test-results/comprehensive-e2e-Villa-Bo-b72d1-and-save-ID-to-localStorage-chromium/error-context.md"
+                            }
+                          ],
+                          "errorLocation": {
+                            "file": "/root/villa-booking-platform/tests/comprehensive-e2e.spec.js",
+                            "column": 18,
+                            "line": 121
+                          }
+                        }
+                      ],
+                      "status": "unexpected"
+                    }
+                  ],
+                  "id": "b3ae7383dc427f9f1a7a-adc1008044a0345888ae",
+                  "file": "comprehensive-e2e.spec.js",
+                  "line": 114,
+                  "column": 5
+                },
+                {
+                  "title": "should persist owner ID after page refresh",
+                  "ok": false,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 60000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 6,
+                          "parallelIndex": 6,
+                          "status": "failed",
+                          "duration": 10802,
+                          "error": {
+                            "message": "TimeoutError: page.fill: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('input[type=\"email\"]')\u001b[22m\n",
+                            "stack": "TimeoutError: page.fill: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('input[type=\"email\"]')\u001b[22m\n\n    at /root/villa-booking-platform/tests/comprehensive-e2e.spec.js:160:18",
+                            "location": {
+                              "file": "/root/villa-booking-platform/tests/comprehensive-e2e.spec.js",
+                              "column": 18,
+                              "line": 160
+                            },
+                            "snippet": "  158 |       await page.goto(FRONTEND_URL);\n  159 |       await page.click('text=Owner');\n> 160 |       await page.fill('input[type=\"email\"]', testOwnerEmail);\n      |                  ^\n  161 |       await page.fill('input[type=\"password\"]', testOwnerPassword);\n  162 |       await page.click('button[type=\"submit\"]:has-text(\"Sign In\")');\n  163 |"
+                          },
+                          "errors": [
+                            {
+                              "location": {
+                                "file": "/root/villa-booking-platform/tests/comprehensive-e2e.spec.js",
+                                "column": 18,
+                                "line": 160
+                              },
+                              "message": "TimeoutError: page.fill: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('input[type=\"email\"]')\u001b[22m\n\n\n  158 |       await page.goto(FRONTEND_URL);\n  159 |       await page.click('text=Owner');\n> 160 |       await page.fill('input[type=\"email\"]', testOwnerEmail);\n      |                  ^\n  161 |       await page.fill('input[type=\"password\"]', testOwnerPassword);\n  162 |       await page.click('button[type=\"submit\"]:has-text(\"Sign In\")');\n  163 |\n    at /root/villa-booking-platform/tests/comprehensive-e2e.spec.js:160:18"
+                            }
+                          ],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2025-11-14T12:52:44.179Z",
+                          "annotations": [],
+                          "attachments": [
+                            {
+                              "name": "screenshot",
+                              "contentType": "image/png",
+                              "path": "/root/test-results/comprehensive-e2e-Villa-Bo-40188-owner-ID-after-page-refresh-chromium/test-failed-1.png"
+                            },
+                            {
+                              "name": "video",
+                              "contentType": "video/webm",
+                              "path": "/root/test-results/comprehensive-e2e-Villa-Bo-40188-owner-ID-after-page-refresh-chromium/video.webm"
+                            },
+                            {
+                              "name": "error-context",
+                              "contentType": "text/markdown",
+                              "path": "/root/test-results/comprehensive-e2e-Villa-Bo-40188-owner-ID-after-page-refresh-chromium/error-context.md"
+                            }
+                          ],
+                          "errorLocation": {
+                            "file": "/root/villa-booking-platform/tests/comprehensive-e2e.spec.js",
+                            "column": 18,
+                            "line": 160
+                          }
+                        }
+                      ],
+                      "status": "unexpected"
+                    }
+                  ],
+                  "id": "b3ae7383dc427f9f1a7a-61ca5354dcfa4446a619",
+                  "file": "comprehensive-e2e.spec.js",
+                  "line": 157,
+                  "column": 5
+                }
+              ]
+            },
+            {
+              "title": "Issue 5: Owner Panel \"My Villas\"",
+              "file": "comprehensive-e2e.spec.js",
+              "line": 181,
+              "column": 8,
+              "specs": [
+                {
+                  "title": "should access My Villas without \"undefined\" in URL",
+                  "ok": false,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 60000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 7,
+                          "parallelIndex": 7,
+                          "status": "failed",
+                          "duration": 10758,
+                          "error": {
+                            "message": "TimeoutError: page.fill: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('input[type=\"email\"]')\u001b[22m\n",
+                            "stack": "TimeoutError: page.fill: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('input[type=\"email\"]')\u001b[22m\n\n    at /root/villa-booking-platform/tests/comprehensive-e2e.spec.js:186:18",
+                            "location": {
+                              "file": "/root/villa-booking-platform/tests/comprehensive-e2e.spec.js",
+                              "column": 18,
+                              "line": 186
+                            },
+                            "snippet": "  184 |       await page.goto(FRONTEND_URL);\n  185 |       await page.click('text=Owner');\n> 186 |       await page.fill('input[type=\"email\"]', testOwnerEmail);\n      |                  ^\n  187 |       await page.fill('input[type=\"password\"]', testOwnerPassword);\n  188 |       await page.click('button[type=\"submit\"]:has-text(\"Sign In\")');\n  189 |"
+                          },
+                          "errors": [
+                            {
+                              "location": {
+                                "file": "/root/villa-booking-platform/tests/comprehensive-e2e.spec.js",
+                                "column": 18,
+                                "line": 186
+                              },
+                              "message": "TimeoutError: page.fill: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('input[type=\"email\"]')\u001b[22m\n\n\n  184 |       await page.goto(FRONTEND_URL);\n  185 |       await page.click('text=Owner');\n> 186 |       await page.fill('input[type=\"email\"]', testOwnerEmail);\n      |                  ^\n  187 |       await page.fill('input[type=\"password\"]', testOwnerPassword);\n  188 |       await page.click('button[type=\"submit\"]:has-text(\"Sign In\")');\n  189 |\n    at /root/villa-booking-platform/tests/comprehensive-e2e.spec.js:186:18"
+                            }
+                          ],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2025-11-14T12:52:44.442Z",
+                          "annotations": [],
+                          "attachments": [
+                            {
+                              "name": "screenshot",
+                              "contentType": "image/png",
+                              "path": "/root/test-results/comprehensive-e2e-Villa-Bo-eb0fd-as-without-undefined-in-URL-chromium/test-failed-1.png"
+                            },
+                            {
+                              "name": "video",
+                              "contentType": "video/webm",
+                              "path": "/root/test-results/comprehensive-e2e-Villa-Bo-eb0fd-as-without-undefined-in-URL-chromium/video.webm"
+                            },
+                            {
+                              "name": "error-context",
+                              "contentType": "text/markdown",
+                              "path": "/root/test-results/comprehensive-e2e-Villa-Bo-eb0fd-as-without-undefined-in-URL-chromium/error-context.md"
+                            }
+                          ],
+                          "errorLocation": {
+                            "file": "/root/villa-booking-platform/tests/comprehensive-e2e.spec.js",
+                            "column": 18,
+                            "line": 186
+                          }
+                        }
+                      ],
+                      "status": "unexpected"
+                    }
+                  ],
+                  "id": "b3ae7383dc427f9f1a7a-bfea2f2d7b39326f96ad",
+                  "file": "comprehensive-e2e.spec.js",
+                  "line": 182,
+                  "column": 5
+                },
+                {
+                  "title": "should show empty state or villas for new owner",
+                  "ok": false,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 60000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 8,
+                          "parallelIndex": 4,
+                          "status": "failed",
+                          "duration": 10803,
+                          "error": {
+                            "message": "TimeoutError: page.fill: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('input[type=\"email\"]')\u001b[22m\n",
+                            "stack": "TimeoutError: page.fill: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('input[type=\"email\"]')\u001b[22m\n\n    at /root/villa-booking-platform/tests/comprehensive-e2e.spec.js:222:18",
+                            "location": {
+                              "file": "/root/villa-booking-platform/tests/comprehensive-e2e.spec.js",
+                              "column": 18,
+                              "line": 222
+                            },
+                            "snippet": "  220 |       await page.goto(FRONTEND_URL);\n  221 |       await page.click('text=Owner');\n> 222 |       await page.fill('input[type=\"email\"]', testOwnerEmail);\n      |                  ^\n  223 |       await page.fill('input[type=\"password\"]', testOwnerPassword);\n  224 |       await page.click('button[type=\"submit\"]:has-text(\"Sign In\")');\n  225 |"
+                          },
+                          "errors": [
+                            {
+                              "location": {
+                                "file": "/root/villa-booking-platform/tests/comprehensive-e2e.spec.js",
+                                "column": 18,
+                                "line": 222
+                              },
+                              "message": "TimeoutError: page.fill: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('input[type=\"email\"]')\u001b[22m\n\n\n  220 |       await page.goto(FRONTEND_URL);\n  221 |       await page.click('text=Owner');\n> 222 |       await page.fill('input[type=\"email\"]', testOwnerEmail);\n      |                  ^\n  223 |       await page.fill('input[type=\"password\"]', testOwnerPassword);\n  224 |       await page.click('button[type=\"submit\"]:has-text(\"Sign In\")');\n  225 |\n    at /root/villa-booking-platform/tests/comprehensive-e2e.spec.js:222:18"
+                            }
+                          ],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2025-11-14T12:52:55.576Z",
+                          "annotations": [],
+                          "attachments": [
+                            {
+                              "name": "screenshot",
+                              "contentType": "image/png",
+                              "path": "/root/test-results/comprehensive-e2e-Villa-Bo-0b8c1-ate-or-villas-for-new-owner-chromium/test-failed-1.png"
+                            },
+                            {
+                              "name": "video",
+                              "contentType": "video/webm",
+                              "path": "/root/test-results/comprehensive-e2e-Villa-Bo-0b8c1-ate-or-villas-for-new-owner-chromium/video.webm"
+                            },
+                            {
+                              "name": "error-context",
+                              "contentType": "text/markdown",
+                              "path": "/root/test-results/comprehensive-e2e-Villa-Bo-0b8c1-ate-or-villas-for-new-owner-chromium/error-context.md"
+                            }
+                          ],
+                          "errorLocation": {
+                            "file": "/root/villa-booking-platform/tests/comprehensive-e2e.spec.js",
+                            "column": 18,
+                            "line": 222
+                          }
+                        }
+                      ],
+                      "status": "unexpected"
+                    }
+                  ],
+                  "id": "b3ae7383dc427f9f1a7a-b58288e9f81ae63d93cf",
+                  "file": "comprehensive-e2e.spec.js",
+                  "line": 219,
+                  "column": 5
+                }
+              ]
+            },
+            {
+              "title": "Issue 6: Villa Integrations Dropdown",
+              "file": "comprehensive-e2e.spec.js",
+              "line": 238,
+              "column": 8,
+              "specs": [
+                {
+                  "title": "should populate villa dropdown in integrations",
+                  "ok": false,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 60000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 9,
+                          "parallelIndex": 3,
+                          "status": "failed",
+                          "duration": 10645,
+                          "error": {
+                            "message": "TimeoutError: page.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('text=Admin Login')\u001b[22m\n",
+                            "stack": "TimeoutError: page.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('text=Admin Login')\u001b[22m\n\n    at /root/villa-booking-platform/tests/comprehensive-e2e.spec.js:242:18",
+                            "location": {
+                              "file": "/root/villa-booking-platform/tests/comprehensive-e2e.spec.js",
+                              "column": 18,
+                              "line": 242
+                            },
+                            "snippet": "  240 |       // Login as admin\n  241 |       await page.goto(FRONTEND_URL);\n> 242 |       await page.click('text=Admin Login');\n      |                  ^\n  243 |       await page.click('button[type=\"submit\"]:has-text(\"Sign In\")');\n  244 |\n  245 |       await page.waitForURL(/.*admin-dashboard/, { timeout: 10000 });"
+                          },
+                          "errors": [
+                            {
+                              "location": {
+                                "file": "/root/villa-booking-platform/tests/comprehensive-e2e.spec.js",
+                                "column": 18,
+                                "line": 242
+                              },
+                              "message": "TimeoutError: page.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('text=Admin Login')\u001b[22m\n\n\n  240 |       // Login as admin\n  241 |       await page.goto(FRONTEND_URL);\n> 242 |       await page.click('text=Admin Login');\n      |                  ^\n  243 |       await page.click('button[type=\"submit\"]:has-text(\"Sign In\")');\n  244 |\n  245 |       await page.waitForURL(/.*admin-dashboard/, { timeout: 10000 });\n    at /root/villa-booking-platform/tests/comprehensive-e2e.spec.js:242:18"
+                            }
+                          ],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2025-11-14T12:52:55.632Z",
+                          "annotations": [],
+                          "attachments": [
+                            {
+                              "name": "screenshot",
+                              "contentType": "image/png",
+                              "path": "/root/test-results/comprehensive-e2e-Villa-Bo-df867-la-dropdown-in-integrations-chromium/test-failed-1.png"
+                            },
+                            {
+                              "name": "video",
+                              "contentType": "video/webm",
+                              "path": "/root/test-results/comprehensive-e2e-Villa-Bo-df867-la-dropdown-in-integrations-chromium/video.webm"
+                            },
+                            {
+                              "name": "error-context",
+                              "contentType": "text/markdown",
+                              "path": "/root/test-results/comprehensive-e2e-Villa-Bo-df867-la-dropdown-in-integrations-chromium/error-context.md"
+                            }
+                          ],
+                          "errorLocation": {
+                            "file": "/root/villa-booking-platform/tests/comprehensive-e2e.spec.js",
+                            "column": 18,
+                            "line": 242
+                          }
+                        }
+                      ],
+                      "status": "unexpected"
+                    }
+                  ],
+                  "id": "b3ae7383dc427f9f1a7a-ec980c22900ffc378289",
+                  "file": "comprehensive-e2e.spec.js",
+                  "line": 239,
+                  "column": 5
+                }
+              ]
+            },
+            {
+              "title": "Additional Critical Tests",
+              "file": "comprehensive-e2e.spec.js",
+              "line": 274,
+              "column": 8,
+              "specs": [
+                {
+                  "title": "should handle admin_id without ObjectId errors",
+                  "ok": false,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 60000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 10,
+                          "parallelIndex": 2,
+                          "status": "failed",
+                          "duration": 10610,
+                          "error": {
+                            "message": "TimeoutError: page.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('text=Admin Login')\u001b[22m\n",
+                            "stack": "TimeoutError: page.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('text=Admin Login')\u001b[22m\n\n    at /root/villa-booking-platform/tests/comprehensive-e2e.spec.js:277:18",
+                            "location": {
+                              "file": "/root/villa-booking-platform/tests/comprehensive-e2e.spec.js",
+                              "column": 18,
+                              "line": 277
+                            },
+                            "snippet": "  275 |     test('should handle admin_id without ObjectId errors', async ({ page }) => {\n  276 |       await page.goto(FRONTEND_URL);\n> 277 |       await page.click('text=Admin Login');\n      |                  ^\n  278 |       await page.click('button[type=\"submit\"]:has-text(\"Sign In\")');\n  279 |\n  280 |       await page.waitForURL(/.*admin-dashboard/, { timeout: 10000 });"
+                          },
+                          "errors": [
+                            {
+                              "location": {
+                                "file": "/root/villa-booking-platform/tests/comprehensive-e2e.spec.js",
+                                "column": 18,
+                                "line": 277
+                              },
+                              "message": "TimeoutError: page.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('text=Admin Login')\u001b[22m\n\n\n  275 |     test('should handle admin_id without ObjectId errors', async ({ page }) => {\n  276 |       await page.goto(FRONTEND_URL);\n> 277 |       await page.click('text=Admin Login');\n      |                  ^\n  278 |       await page.click('button[type=\"submit\"]:has-text(\"Sign In\")');\n  279 |\n  280 |       await page.waitForURL(/.*admin-dashboard/, { timeout: 10000 });\n    at /root/villa-booking-platform/tests/comprehensive-e2e.spec.js:277:18"
+                            }
+                          ],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2025-11-14T12:52:55.599Z",
+                          "annotations": [],
+                          "attachments": [
+                            {
+                              "name": "screenshot",
+                              "contentType": "image/png",
+                              "path": "/root/test-results/comprehensive-e2e-Villa-Bo-8b6f0--id-without-ObjectId-errors-chromium/test-failed-1.png"
+                            },
+                            {
+                              "name": "video",
+                              "contentType": "video/webm",
+                              "path": "/root/test-results/comprehensive-e2e-Villa-Bo-8b6f0--id-without-ObjectId-errors-chromium/video.webm"
+                            },
+                            {
+                              "name": "error-context",
+                              "contentType": "text/markdown",
+                              "path": "/root/test-results/comprehensive-e2e-Villa-Bo-8b6f0--id-without-ObjectId-errors-chromium/error-context.md"
+                            }
+                          ],
+                          "errorLocation": {
+                            "file": "/root/villa-booking-platform/tests/comprehensive-e2e.spec.js",
+                            "column": 18,
+                            "line": 277
+                          }
+                        }
+                      ],
+                      "status": "unexpected"
+                    }
+                  ],
+                  "id": "b3ae7383dc427f9f1a7a-c8a9ad3f683d95812f7b",
+                  "file": "comprehensive-e2e.spec.js",
+                  "line": 275,
+                  "column": 5
+                },
+                {
+                  "title": "should create villa successfully",
+                  "ok": false,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 60000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 11,
+                          "parallelIndex": 6,
+                          "status": "failed",
+                          "duration": 10681,
+                          "error": {
+                            "message": "TimeoutError: page.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('text=Admin Login')\u001b[22m\n",
+                            "stack": "TimeoutError: page.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('text=Admin Login')\u001b[22m\n\n    at /root/villa-booking-platform/tests/comprehensive-e2e.spec.js:300:18",
+                            "location": {
+                              "file": "/root/villa-booking-platform/tests/comprehensive-e2e.spec.js",
+                              "column": 18,
+                              "line": 300
+                            },
+                            "snippet": "  298 |       // Login as admin\n  299 |       await page.goto(FRONTEND_URL);\n> 300 |       await page.click('text=Admin Login');\n      |                  ^\n  301 |       await page.click('button[type=\"submit\"]:has-text(\"Sign In\")');\n  302 |\n  303 |       await page.waitForURL(/.*admin-dashboard/, { timeout: 10000 });"
+                          },
+                          "errors": [
+                            {
+                              "location": {
+                                "file": "/root/villa-booking-platform/tests/comprehensive-e2e.spec.js",
+                                "column": 18,
+                                "line": 300
+                              },
+                              "message": "TimeoutError: page.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('text=Admin Login')\u001b[22m\n\n\n  298 |       // Login as admin\n  299 |       await page.goto(FRONTEND_URL);\n> 300 |       await page.click('text=Admin Login');\n      |                  ^\n  301 |       await page.click('button[type=\"submit\"]:has-text(\"Sign In\")');\n  302 |\n  303 |       await page.waitForURL(/.*admin-dashboard/, { timeout: 10000 });\n    at /root/villa-booking-platform/tests/comprehensive-e2e.spec.js:300:18"
+                            }
+                          ],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2025-11-14T12:52:55.637Z",
+                          "annotations": [],
+                          "attachments": [
+                            {
+                              "name": "screenshot",
+                              "contentType": "image/png",
+                              "path": "/root/test-results/comprehensive-e2e-Villa-Bo-eba22-d-create-villa-successfully-chromium/test-failed-1.png"
+                            },
+                            {
+                              "name": "video",
+                              "contentType": "video/webm",
+                              "path": "/root/test-results/comprehensive-e2e-Villa-Bo-eba22-d-create-villa-successfully-chromium/video.webm"
+                            },
+                            {
+                              "name": "error-context",
+                              "contentType": "text/markdown",
+                              "path": "/root/test-results/comprehensive-e2e-Villa-Bo-eba22-d-create-villa-successfully-chromium/error-context.md"
+                            }
+                          ],
+                          "errorLocation": {
+                            "file": "/root/villa-booking-platform/tests/comprehensive-e2e.spec.js",
+                            "column": 18,
+                            "line": 300
+                          }
+                        }
+                      ],
+                      "status": "unexpected"
+                    }
+                  ],
+                  "id": "b3ae7383dc427f9f1a7a-c8fe77220789e24ab735",
+                  "file": "comprehensive-e2e.spec.js",
+                  "line": 297,
+                  "column": 5
+                },
+                {
+                  "title": "should handle CORS correctly",
+                  "ok": false,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 60000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 12,
+                          "parallelIndex": 5,
+                          "status": "failed",
+                          "duration": 10608,
+                          "error": {
+                            "message": "TimeoutError: page.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('text=Admin Login')\u001b[22m\n",
+                            "stack": "TimeoutError: page.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('text=Admin Login')\u001b[22m\n\n    at /root/villa-booking-platform/tests/comprehensive-e2e.spec.js:338:18",
+                            "location": {
+                              "file": "/root/villa-booking-platform/tests/comprehensive-e2e.spec.js",
+                              "column": 18,
+                              "line": 338
+                            },
+                            "snippet": "  336 |\n  337 |       await page.goto(FRONTEND_URL);\n> 338 |       await page.click('text=Admin Login');\n      |                  ^\n  339 |       await page.click('button[type=\"submit\"]:has-text(\"Sign In\")');\n  340 |\n  341 |       await page.waitForURL(/.*admin-dashboard/, { timeout: 10000 });"
+                          },
+                          "errors": [
+                            {
+                              "location": {
+                                "file": "/root/villa-booking-platform/tests/comprehensive-e2e.spec.js",
+                                "column": 18,
+                                "line": 338
+                              },
+                              "message": "TimeoutError: page.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('text=Admin Login')\u001b[22m\n\n\n  336 |\n  337 |       await page.goto(FRONTEND_URL);\n> 338 |       await page.click('text=Admin Login');\n      |                  ^\n  339 |       await page.click('button[type=\"submit\"]:has-text(\"Sign In\")');\n  340 |\n  341 |       await page.waitForURL(/.*admin-dashboard/, { timeout: 10000 });\n    at /root/villa-booking-platform/tests/comprehensive-e2e.spec.js:338:18"
+                            }
+                          ],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2025-11-14T12:52:55.726Z",
+                          "annotations": [],
+                          "attachments": [
+                            {
+                              "name": "screenshot",
+                              "contentType": "image/png",
+                              "path": "/root/test-results/comprehensive-e2e-Villa-Bo-bca6c-hould-handle-CORS-correctly-chromium/test-failed-1.png"
+                            },
+                            {
+                              "name": "video",
+                              "contentType": "video/webm",
+                              "path": "/root/test-results/comprehensive-e2e-Villa-Bo-bca6c-hould-handle-CORS-correctly-chromium/video.webm"
+                            },
+                            {
+                              "name": "error-context",
+                              "contentType": "text/markdown",
+                              "path": "/root/test-results/comprehensive-e2e-Villa-Bo-bca6c-hould-handle-CORS-correctly-chromium/error-context.md"
+                            }
+                          ],
+                          "errorLocation": {
+                            "file": "/root/villa-booking-platform/tests/comprehensive-e2e.spec.js",
+                            "column": 18,
+                            "line": 338
+                          }
+                        }
+                      ],
+                      "status": "unexpected"
+                    }
+                  ],
+                  "id": "b3ae7383dc427f9f1a7a-737d98732d21e719b6ca",
+                  "file": "comprehensive-e2e.spec.js",
+                  "line": 328,
+                  "column": 5
+                }
+              ]
+            },
+            {
+              "title": "Performance & Security Tests",
+              "file": "comprehensive-e2e.spec.js",
+              "line": 349,
+              "column": 8,
+              "specs": [
+                {
+                  "title": "should load homepage within 3 seconds",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 60000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 13,
+                          "parallelIndex": 7,
+                          "status": "passed",
+                          "duration": 1051,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2025-11-14T12:52:55.812Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "b3ae7383dc427f9f1a7a-7cc8ef0626167af6be97",
+                  "file": "comprehensive-e2e.spec.js",
+                  "line": 350,
+                  "column": 5
+                },
+                {
+                  "title": "should have security headers",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 60000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 14,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 687,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2025-11-14T12:52:56.041Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "b3ae7383dc427f9f1a7a-ed242ccdae79fb80e5df",
+                  "file": "comprehensive-e2e.spec.js",
+                  "line": 359,
+                  "column": 5
+                },
+                {
+                  "title": "should handle logout correctly",
+                  "ok": false,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 60000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 15,
+                          "parallelIndex": 1,
+                          "status": "failed",
+                          "duration": 10647,
+                          "error": {
+                            "message": "TimeoutError: page.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('text=Admin Login')\u001b[22m\n",
+                            "stack": "TimeoutError: page.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('text=Admin Login')\u001b[22m\n\n    at /root/villa-booking-platform/tests/comprehensive-e2e.spec.js:371:18",
+                            "location": {
+                              "file": "/root/villa-booking-platform/tests/comprehensive-e2e.spec.js",
+                              "column": 18,
+                              "line": 371
+                            },
+                            "snippet": "  369 |       // Login\n  370 |       await page.goto(FRONTEND_URL);\n> 371 |       await page.click('text=Admin Login');\n      |                  ^\n  372 |       await page.click('button[type=\"submit\"]:has-text(\"Sign In\")');\n  373 |\n  374 |       await page.waitForURL(/.*admin-dashboard/, { timeout: 10000 });"
+                          },
+                          "errors": [
+                            {
+                              "location": {
+                                "file": "/root/villa-booking-platform/tests/comprehensive-e2e.spec.js",
+                                "column": 18,
+                                "line": 371
+                              },
+                              "message": "TimeoutError: page.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('text=Admin Login')\u001b[22m\n\n\n  369 |       // Login\n  370 |       await page.goto(FRONTEND_URL);\n> 371 |       await page.click('text=Admin Login');\n      |                  ^\n  372 |       await page.click('button[type=\"submit\"]:has-text(\"Sign In\")');\n  373 |\n  374 |       await page.waitForURL(/.*admin-dashboard/, { timeout: 10000 });\n    at /root/villa-booking-platform/tests/comprehensive-e2e.spec.js:371:18"
+                            }
+                          ],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2025-11-14T12:52:56.063Z",
+                          "annotations": [],
+                          "attachments": [
+                            {
+                              "name": "screenshot",
+                              "contentType": "image/png",
+                              "path": "/root/test-results/comprehensive-e2e-Villa-Bo-0bdfa-uld-handle-logout-correctly-chromium/test-failed-1.png"
+                            },
+                            {
+                              "name": "video",
+                              "contentType": "video/webm",
+                              "path": "/root/test-results/comprehensive-e2e-Villa-Bo-0bdfa-uld-handle-logout-correctly-chromium/video.webm"
+                            },
+                            {
+                              "name": "error-context",
+                              "contentType": "text/markdown",
+                              "path": "/root/test-results/comprehensive-e2e-Villa-Bo-0bdfa-uld-handle-logout-correctly-chromium/error-context.md"
+                            }
+                          ],
+                          "errorLocation": {
+                            "file": "/root/villa-booking-platform/tests/comprehensive-e2e.spec.js",
+                            "column": 18,
+                            "line": 371
+                          }
+                        }
+                      ],
+                      "status": "unexpected"
+                    }
+                  ],
+                  "id": "b3ae7383dc427f9f1a7a-61bcdcae664adfac3bf2",
+                  "file": "comprehensive-e2e.spec.js",
+                  "line": 368,
+                  "column": 5
+                }
+              ]
+            },
+            {
+              "title": "Mobile Responsiveness",
+              "file": "comprehensive-e2e.spec.js",
+              "line": 391,
+              "column": 8,
+              "specs": [
+                {
+                  "title": "should be responsive on mobile",
+                  "ok": false,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 60000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 14,
+                          "parallelIndex": 0,
+                          "status": "failed",
+                          "duration": 5443,
+                          "error": {
+                            "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('input[type=\"email\"]')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('input[type=\"email\"]')\u001b[22m\n",
+                            "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('input[type=\"email\"]')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('input[type=\"email\"]')\u001b[22m\n\n    at /root/villa-booking-platform/tests/comprehensive-e2e.spec.js:401:57",
+                            "location": {
+                              "file": "/root/villa-booking-platform/tests/comprehensive-e2e.spec.js",
+                              "column": 57,
+                              "line": 401
+                            },
+                            "snippet": "  399 |\n  400 |       // Login form should be visible\n> 401 |       await expect(page.locator('input[type=\"email\"]')).toBeVisible();\n      |                                                         ^\n  402 |     });\n  403 |   });\n  404 | });"
+                          },
+                          "errors": [
+                            {
+                              "location": {
+                                "file": "/root/villa-booking-platform/tests/comprehensive-e2e.spec.js",
+                                "column": 57,
+                                "line": 401
+                              },
+                              "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('input[type=\"email\"]')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('input[type=\"email\"]')\u001b[22m\n\n\n  399 |\n  400 |       // Login form should be visible\n> 401 |       await expect(page.locator('input[type=\"email\"]')).toBeVisible();\n      |                                                         ^\n  402 |     });\n  403 |   });\n  404 | });\n    at /root/villa-booking-platform/tests/comprehensive-e2e.spec.js:401:57"
+                            }
+                          ],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2025-11-14T12:52:56.828Z",
+                          "annotations": [],
+                          "attachments": [
+                            {
+                              "name": "screenshot",
+                              "contentType": "image/png",
+                              "path": "/root/test-results/comprehensive-e2e-Villa-Bo-44e99-uld-be-responsive-on-mobile-chromium/test-failed-1.png"
+                            },
+                            {
+                              "name": "video",
+                              "contentType": "video/webm",
+                              "path": "/root/test-results/comprehensive-e2e-Villa-Bo-44e99-uld-be-responsive-on-mobile-chromium/video.webm"
+                            },
+                            {
+                              "name": "error-context",
+                              "contentType": "text/markdown",
+                              "path": "/root/test-results/comprehensive-e2e-Villa-Bo-44e99-uld-be-responsive-on-mobile-chromium/error-context.md"
+                            }
+                          ],
+                          "errorLocation": {
+                            "file": "/root/villa-booking-platform/tests/comprehensive-e2e.spec.js",
+                            "column": 57,
+                            "line": 401
+                          }
+                        }
+                      ],
+                      "status": "unexpected"
+                    }
+                  ],
+                  "id": "b3ae7383dc427f9f1a7a-66bce89827695e7820fe",
+                  "file": "comprehensive-e2e.spec.js",
+                  "line": 394,
+                  "column": 5
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2025-11-14T12:52:43.462Z",
+    "duration": 23437.935,
+    "expected": 2,
+    "skipped": 0,
+    "unexpected": 15,
+    "flaky": 0
+  }
+}
