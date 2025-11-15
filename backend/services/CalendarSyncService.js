@@ -550,7 +550,7 @@ class CalendarSyncService {
    * @returns {String} iCal feed URL
    */
   generateICalFeedUrl(villaId) {
-    const baseUrl = process.env.API_URL || 'https://villas.alexandratechlab.com';
+    const baseUrl = process.env.API_URL || process.env.BACKEND_URL || 'http://localhost:9000';
     const token = Buffer.from(`${villaId}:${Date.now()}`).toString('base64');
     return `${baseUrl}/api/calendar/ical/${villaId}?token=${token}`;
   }

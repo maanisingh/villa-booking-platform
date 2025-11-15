@@ -1,0 +1,209 @@
+{
+  "v": 1,
+  "name": "Villa Booking Platform API",
+  "requests": [
+    {
+      "v": "1",
+      "endpoint": "http://localhost:9000/api/health",
+      "name": "Health Check",
+      "method": "GET",
+      "headers": [],
+      "params": []
+    },
+    {
+      "v": "1",
+      "endpoint": "http://localhost:9000/api/admin/login",
+      "name": "Admin Login",
+      "method": "POST",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "contentType": "application/json",
+        "body": "{\n  \"email\": \"admin@gmail.com\",\n  \"password\": \"123\"\n}"
+      },
+      "params": []
+    },
+    {
+      "v": "1",
+      "endpoint": "http://localhost:9000/api/owner/login",
+      "name": "Owner Login",
+      "method": "POST",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "contentType": "application/json",
+        "body": "{\n  \"email\": \"testowner@villa.com\",\n  \"password\": \"password123\"\n}"
+      },
+      "params": []
+    },
+    {
+      "v": "1",
+      "endpoint": "http://localhost:9000/api/owners",
+      "name": "Create New Owner (Register)",
+      "method": "POST",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "contentType": "application/json",
+        "body": "{\n  \"name\": \"Test Owner\",\n  \"email\": \"owner@example.com\",\n  \"password\": \"password123\",\n  \"phoneNumber\": \"+1234567890\"\n}"
+      },
+      "params": []
+    },
+    {
+      "v": "1",
+      "endpoint": "http://localhost:9000/api/villas",
+      "name": "Get All Villas",
+      "method": "GET",
+      "headers": [],
+      "params": []
+    },
+    {
+      "v": "1",
+      "endpoint": "http://localhost:9000/api/villas/stats",
+      "name": "Get Villa Stats",
+      "method": "GET",
+      "headers": [],
+      "params": []
+    },
+    {
+      "v": "1",
+      "endpoint": "http://localhost:9000/api/villas",
+      "name": "Create Villa",
+      "method": "POST",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "key": "Authorization",
+          "value": "Bearer {{adminToken}}"
+        }
+      ],
+      "body": {
+        "contentType": "application/json",
+        "body": "{\n  \"name\": \"New Villa\",\n  \"location\": \"Bali, Indonesia\",\n  \"description\": \"Beautiful villa\",\n  \"price\": \"500\",\n  \"status\": \"Available\",\n  \"owner\": \"{{ownerId}}\",\n  \"amenities\": [\"WiFi\", \"Pool\", \"AC\"],\n  \"type\": \"3BHK\",\n  \"area\": \"250\"\n}"
+      },
+      "params": []
+    },
+    {
+      "v": "1",
+      "endpoint": "http://localhost:9000/api/villas/my-villa/{{ownerId}}",
+      "name": "Get Owner's Villas",
+      "method": "GET",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer {{ownerToken}}"
+        }
+      ],
+      "params": []
+    },
+    {
+      "v": "1",
+      "endpoint": "http://localhost:9000/api/owner/profile",
+      "name": "Get Owner Profile",
+      "method": "GET",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer {{ownerToken}}"
+        }
+      ],
+      "params": []
+    },
+    {
+      "v": "1",
+      "endpoint": "http://localhost:9000/api/owner/profile",
+      "name": "Update Owner Profile",
+      "method": "PUT",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "key": "Authorization",
+          "value": "Bearer {{ownerToken}}"
+        }
+      ],
+      "body": {
+        "contentType": "application/json",
+        "body": "{\n  \"name\": \"Updated Owner Name\",\n  \"phoneNumber\": \"+9876543210\"\n}"
+      },
+      "params": []
+    },
+    {
+      "v": "1",
+      "endpoint": "http://localhost:9000/api/bookings",
+      "name": "Get All Bookings",
+      "method": "GET",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer {{adminToken}}"
+        }
+      ],
+      "params": []
+    },
+    {
+      "v": "1",
+      "endpoint": "http://localhost:9000/api/owner/bookings/{{ownerId}}",
+      "name": "Get Owner Bookings",
+      "method": "GET",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer {{ownerToken}}"
+        }
+      ],
+      "params": []
+    },
+    {
+      "v": "1",
+      "endpoint": "http://localhost:9000/api/platform-connections/{{ownerId}}",
+      "name": "Get Platform Connections",
+      "method": "GET",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer {{ownerToken}}"
+        }
+      ],
+      "params": []
+    },
+    {
+      "v": "1",
+      "endpoint": "http://localhost:9000/api/platform-connections",
+      "name": "Create Platform Connection",
+      "method": "POST",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "key": "Authorization",
+          "value": "Bearer {{ownerToken}}"
+        }
+      ],
+      "body": {
+        "contentType": "application/json",
+        "body": "{\n  \"ownerId\": \"{{ownerId}}\",\n  \"platform\": \"airbnb\",\n  \"credentials\": {\n    \"apiKey\": \"test_api_key\",\n    \"apiSecret\": \"test_api_secret\"\n  }\n}"
+      },
+      "params": []
+    }
+  ]
+}

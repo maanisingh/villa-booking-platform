@@ -86,7 +86,7 @@ const platformConnectionSchema = new mongoose.Schema(
     webhookUrl: {
       type: String,
       default: function() {
-        return `${process.env.BACKEND_URL || 'https://villas.alexandratechlab.com'}/api/webhooks/${this.platform}`;
+        return `${process.env.BACKEND_URL || 'http://localhost:9000'}/api/webhooks/${this.platform}`;
       }
     },
     webhookSecret: {

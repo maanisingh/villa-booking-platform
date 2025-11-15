@@ -19,26 +19,33 @@ exports.adminLogin = async (req, res) => {
   try {
     const { email, password } = req.body;
 
-    // Hardcoded credentials
-    const adminEmail = "admin@gmail.com";
-    const adminPassword = "123";
-
-    if (email !== adminEmail || password !== adminPassword) {
+    // Find admin from database
+    const admin = await Login.findOne({ email, role: "admin" });
+    if (!admin) {
       return res
-        .status(401)
-        .json({ success: false, message: "Invalid admin credentials" });
+        .status(404)
+        .json({ success: false, message: "Admin not found" });
     }
 
-    const token = generateToken({ _id: "admin_id", role: "admin" });
+    // Compare password with hashed password
+    const isMatch = await bcrypt.compare(password, admin.password);
+    if (!isMatch) {
+      return res
+        .status(401)
+        .json({ success: false, message: "Invalid credentials" });
+    }
+
+    const token = generateToken(admin);
 
     res.status(200).json({
       success: true,
       message: "Admin logged in successfully",
       token,
       user: {
-        name: "Super Admin",
-        email: adminEmail,
-        role: "admin",
+        id: admin._id,
+        name: admin.name,
+        email: admin.email,
+        role: admin.role,
       },
     });
   } catch (error) {
@@ -141,32 +148,17 @@ exports.getOwnerProfile = async (req, res) => {
   try {
     const ownerId = req.user.id;
 
-    // FIX: Handle special case for admin_id (not a valid ObjectId)
-    if (ownerId === 'admin_id') {
-      return res.status(200).json({
-        success: true,
-        message: "Admin profile",
-        data: {
-          _id: "admin_id",
-          name: "Super Admin",
-          email: "admin@gmail.com",
-          role: "admin",
-          status: "Active"
-        }
-      });
-    }
-
-    const owner = await Login.findById(ownerId).select("-password");
-    if (!owner) {
+    const user = await Login.findById(ownerId).select("-password");
+    if (!user) {
       return res
         .status(404)
-        .json({ success: false, message: "Owner not found" });
+        .json({ success: false, message: "User not found" });
     }
 
     res.status(200).json({
       success: true,
       message: "Profile fetched successfully",
-      data: owner,
+      data: user,
     });
   } catch (error) {
     console.error("Get Owner Profile Error:", error);
@@ -179,14 +171,6 @@ exports.updateOwnerProfile = async (req, res) => {
   try {
     const ownerId = req.user.id;
     const updateData = req.body;
-
-    // FIX: Don't allow admin profile updates
-    if (ownerId === 'admin_id') {
-      return res.status(403).json({
-        success: false,
-        message: "Admin profile cannot be updated through this endpoint"
-      });
-    }
 
     if (req.file) {
       updateData.image = `/uploads/${req.file.filename}`;
@@ -212,7 +196,7 @@ exports.updateOwnerProfile = async (req, res) => {
     if (!updated) {
       return res
         .status(404)
-        .json({ success: false, message: "Owner not found" });
+        .json({ success: false, message: "User not found" });
     }
 
     res.status(200).json({
@@ -227,22 +211,13 @@ exports.updateOwnerProfile = async (req, res) => {
 };
 
 // ================== OWNER CHANGE PASSWORD (Self) ==================
-// Replace your existing changeOwnerPassword with this
 exports.changeOwnerPassword = async (req, res) => {
   try {
-    const ownerId = req.user?.id; // ensure auth middleware sets req.user
+    const ownerId = req.user?.id;
     const { currentPassword, newPassword, confirmPassword } = req.body;
 
     if (!ownerId) {
       return res.status(401).json({ success: false, message: "Unauthorized" });
-    }
-
-    // FIX: Don't allow admin password changes through this endpoint
-    if (ownerId === 'admin_id') {
-      return res.status(403).json({
-        success: false,
-        message: "Admin password cannot be changed through this endpoint"
-      });
     }
 
     if (!currentPassword || !newPassword || !confirmPassword) {
@@ -255,39 +230,22 @@ exports.changeOwnerPassword = async (req, res) => {
       return res.status(400).json({ success: false, message: "Passwords do not match" });
     }
 
-    // Make sure we select the password field even if schema uses select: false
-    const owner = await Login.findById(ownerId).select("+password");
-    if (!owner) {
-      return res.status(404).json({ success: false, message: "Owner not found" });
+    const user = await Login.findById(ownerId).select("+password");
+    if (!user) {
+      return res.status(404).json({ success: false, message: "User not found" });
     }
 
-    // DEBUG (optional): remove in production
-    // console.log("Stored password length:", owner.password ? owner.password.length : "none");
-
-    // 1) Preferred: bcrypt compare against hashed password
-    let isMatch = false;
-    if (owner.password) {
-      try {
-        isMatch = await bcrypt.compare(currentPassword, owner.password);
-      } catch (err) {
-        // If compare throws (rare), treat as not matched
-        isMatch = false;
-      }
-    }
-
-    // 2) Fallback: if bcrypt compare failed, but stored password equals the plaintext (legacy),
-    // allow it but we'll re-hash the new password below.
-    const legacyPlaintextMatch = !isMatch && owner.password === currentPassword;
-
-    if (!isMatch && !legacyPlaintextMatch) {
+    // Compare current password
+    const isMatch = await bcrypt.compare(currentPassword, user.password);
+    if (!isMatch) {
       return res.status(400).json({ success: false, message: "Current password incorrect" });
     }
 
-    // Hash & set the new password
+    // Hash and set the new password
     const salt = await bcrypt.genSalt(10);
     const hashed = await bcrypt.hash(newPassword, salt);
-    owner.password = hashed;
-    await owner.save();
+    user.password = hashed;
+    await user.save();
 
     return res.status(200).json({ success: true, message: "Password updated successfully" });
   } catch (error) {
