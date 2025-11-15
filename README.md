@@ -1,102 +1,218 @@
-# 🏖️ Villa Booking Platform
+# 🏝️ Villa Booking Platform
 
-A comprehensive **full-stack MERN application** for managing villa bookings with multi-platform integration support (Airbnb, Booking.com, VRBO).
+A comprehensive villa booking management system with role-based dashboards for Admins and Villa Owners, featuring multi-platform integration (Airbnb, Booking.com, VRBO).
 
-## ✨ Features
-
-### For Owners
-- 📝 Self-registration and profile management
-- 🏡 Villa management (add, edit, delete properties)
-- 📅 Calendar management with availability tracking
-- 📊 Booking dashboard with real-time updates
-- 🔄 Multi-platform integration (Airbnb, Booking.com, VRBO)
-- 📧 Email configuration and notifications
-- 💰 Revenue tracking and analytics
-
-### For Admins
-- 👥 Owner management (approve, edit, delete)
-- 🏘️ Villa oversight and management
-- 📈 System-wide analytics
-- ⚙️ Platform integration management
-- 📧 Email settings configuration
-- 🔐 Role-based access control
-
-## 🚀 Quick Start (Localhost - Zero Configuration)
+## ⚡ Quick Start
 
 ```bash
-# 1. Clone the repository
-git clone <your-repo-url>
+git clone https://github.com/maanisingh/villa-booking-platform.git
 cd villa-booking-platform
-
-# 2. Start everything with one command
-./start.sh
+./setup-all.sh
 ```
 
-That's it! The application will be running at:
-- **Frontend**: http://localhost:5173
-- **Backend**: http://localhost:9000
-- **API Health**: http://localhost:9000/api/health
+Press **Enter** when prompted → Both backend and frontend start automatically! 🚀
 
-### Stop the Application
+- **Backend:** http://localhost:9000
+- **Frontend:** http://localhost:5173
+
+## 📚 Documentation
+
+- **[INSTALL.md](INSTALL.md)** - One-page installation guide
+- **[QUICK_START.md](QUICK_START.md)** - Detailed quick start with troubleshooting
+- **[backend/README.md](backend/README.md)** - Backend API documentation
+- **[frontend/README.md](frontend/README.md)** - Frontend development guide
+
+## 🎯 Features
+
+### Admin Dashboard
+- Villa CRUD operations
+- Owner management
+- Booking oversight
+- Analytics and reporting
+- Platform integration management
+
+### Owner Dashboard
+- My villas overview
+- Booking management
+- Revenue analytics
+- Calendar synchronization
+- Multi-platform publishing
+
+### Platform Integrations
+- **Airbnb** - Listing sync, booking management
+- **Booking.com** - Real-time synchronization
+- **VRBO** - Calendar and availability sync
+
+## 🛠️ Tech Stack
+
+**Backend:**
+- Node.js + Express
+- MongoDB + Mongoose
+- JWT Authentication
+- Node-cron (scheduled sync)
+
+**Frontend:**
+- React 19
+- Vite
+- React Router
+- Axios
+- Bootstrap + React Bootstrap
+- Recharts (analytics)
+
+## 📋 Prerequisites
+
+- Node.js v14+ ([Download](https://nodejs.org/))
+- MongoDB v4.4+ ([Install](https://www.mongodb.com/docs/manual/installation/))
+- Git
+
+## 🚀 Installation Options
+
+### Option 1: Complete Setup (Recommended)
 
 ```bash
-./stop.sh
+./setup-all.sh
 ```
 
-## 🔑 Default Credentials
+Sets up both backend and frontend, offers to auto-start both servers.
 
-### Admin
+### Option 2: Individual Setup
+
+**Backend:**
+```bash
+cd backend
+./setup.sh
+```
+
+**Frontend:**
+```bash
+cd frontend
+./setup.sh
+```
+
+### Option 3: Manual Setup
+
+See [QUICK_START.md](QUICK_START.md) for manual installation steps.
+
+## 🔐 Default Credentials
+
+### Admin Login
 - Email: `admin@gmail.com`
 - Password: `123`
 
-### Owner
-- Register new account at: http://localhost:5173/register
+### Owner Login
+- Email: `testowner@villa.com`
+- Password: `password123`
 
-## 📋 Manual Setup (Optional)
+## 📁 Project Structure
 
-If you prefer manual setup, see [MANUAL_SETUP.md](./MANUAL_SETUP.md)
-
-## 🛠️ Technology Stack
-
-- **Frontend**: React 18, Vite, Tailwind CSS
-- **Backend**: Node.js, Express, MongoDB
-- **Auth**: JWT, bcrypt
-- **Real-time**: Calendar sync, Email notifications
-
-## 📚 API Documentation
-
-See [API_DOCS.md](./API_DOCS.md) for complete API reference.
-
-## 🧪 Testing
-
-```bash
-# Test health endpoint
-curl http://localhost:9000/api/health
-
-# Test owner registration
-curl -X POST http://localhost:9000/api/owners \
-  -H "Content-Type: application/json" \
-  -d '{"name":"Test","email":"test@test.com","password":"test123","phoneNumber":"1234567890"}'
+```
+villa-booking-platform/
+├── backend/
+│   ├── Config/
+│   ├── Controller/
+│   ├── Middleware/
+│   ├── Models/
+│   ├── Router/
+│   ├── Server.js
+│   ├── setup.sh          # Backend setup script
+│   └── start-dev.sh      # Quick start script
+├── frontend/
+│   ├── src/
+│   │   ├── Admin/        # Admin dashboard
+│   │   ├── Auth/         # Authentication
+│   │   ├── Owner/        # Owner dashboard
+│   │   └── services/     # API services
+│   ├── setup.sh          # Frontend setup script
+│   └── start-dev.sh      # Quick start script
+├── setup-all.sh          # Master setup script
+├── INSTALL.md
+├── QUICK_START.md
+└── README.md (this file)
 ```
 
-## 🐛 Bug Fixes (November 15, 2025)
+## 🔧 Development
 
-✅ **Fixed**: All 404 errors on registration and login
-✅ **Fixed**: Frontend-backend connection issues
-✅ **Fixed**: Centralized API configuration
-✅ **Fixed**: Auto-detection of development vs production
-✅ **Fixed**: Owner registration form field types
+### Start Backend
+```bash
+cd backend
+npm run dev
+# OR
+./start-dev.sh
+```
 
-## 🚀 Deployment
+### Start Frontend
+```bash
+cd frontend
+npm run dev
+# OR
+./start-dev.sh
+```
 
-For production deployment instructions, see [DEPLOY_GUIDE.md](./DEPLOY_GUIDE.md)
+### Build for Production
+```bash
+# Backend: Already production-ready
+cd backend
+npm start
 
-Quick deploy (5 minutes): [QUICK_DEPLOY.md](./QUICK_DEPLOY.md)
+# Frontend: Build static files
+cd frontend
+npm run build
+```
+
+## 🐛 Troubleshooting
+
+### "Server not responding" Error
+- **Cause:** Frontend can't connect to backend
+- **Fix:** Ensure backend is running on http://localhost:9000
+  ```bash
+  cd backend && ./start-dev.sh
+  ```
+
+### Port Already in Use
+```bash
+# Backend (port 9000)
+lsof -i :9000
+kill -9 <PID>
+
+# Frontend (port 5173)
+lsof -i :5173
+kill -9 <PID>
+```
+
+### MongoDB Not Running
+```bash
+sudo systemctl start mongod
+sudo systemctl enable mongod  # Auto-start on boot
+```
+
+See [QUICK_START.md](QUICK_START.md) for more troubleshooting.
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
 ## 📄 License
 
-MIT License - see [LICENSE](LICENSE) for details
+ISC
+
+## 🆘 Support
+
+For issues and questions:
+- Check [QUICK_START.md](QUICK_START.md) for detailed troubleshooting
+- Verify backend is running: `cd backend && pm2 list`
+- Check `.env` configuration in both frontend and backend
+- Create an issue in the repository
+
+## 🔗 Links
+
+- **Repository:** https://github.com/maanisingh/villa-booking-platform
+- **Backend API:** http://localhost:9000 (development)
+- **Frontend:** http://localhost:5173 (development)
 
 ---
 
-**Made with ❤️ for villa owners and property managers**
+**Built with ❤️ using React, Node.js, and MongoDB**

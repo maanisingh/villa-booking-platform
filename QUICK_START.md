@@ -2,21 +2,39 @@
 
 ## For New Developers (After Cloning from GitHub)
 
-### One-Command Setup ⚡ (Recommended)
+### Ultra-Quick Setup (Complete Platform) ⚡⚡⚡
 
+```bash
+./setup-all.sh
+```
+
+**That's it!** One script sets up BOTH backend and frontend:
+- ✅ Backend: Dependencies, .env, MongoDB check
+- ✅ Frontend: Dependencies, .env, backend URL config
+- ✅ **Offers to start both servers automatically**
+
+Just press **Enter** when prompted and both servers start!
+
+### Individual Setup ⚡ (Backend or Frontend Only)
+
+**Backend:**
 ```bash
 cd backend
 ./setup.sh
 ```
 
-**That's it!** The script will:
+**Frontend:**
+```bash
+cd frontend
+./setup.sh
+```
+
+Each script will:
 - ✅ Check prerequisites (Node.js, npm)
 - ✅ Install all dependencies automatically
 - ✅ Create `.env` configuration file
-- ✅ Check MongoDB status
+- ✅ Check connections
 - ✅ **Ask if you want to start the server immediately**
-
-Just press **Enter** when prompted and the backend starts automatically!
 
 ### Alternative: Manual Control
 
@@ -73,38 +91,42 @@ Make sure you have:
 
 ## 🚀 First-Time Developer Workflow
 
-### Backend Setup
+### Complete Platform Setup (Recommended)
 
 ```bash
 # 1. Clone the repository
 git clone https://github.com/maanisingh/villa-booking-platform.git
-cd villa-booking-platform/backend
+cd villa-booking-platform
 
-# 2. Run setup (does EVERYTHING automatically)
-./setup.sh
+# 2. Run master setup
+./setup-all.sh
 
-# 3. Press Enter when asked to start the server
+# 3. Press Enter when asked to start both servers
 
-# ✅ Done! Backend is running at http://localhost:9000
+# ✅ Done!
+#    Backend: http://localhost:9000
+#    Frontend: http://localhost:5173
 ```
 
-### Frontend Setup
+**Total commands needed: 3** 🎉🎉🎉
 
+---
+
+### Individual Setup (If Preferred)
+
+**Backend Only:**
 ```bash
-# 1. Open a new terminal
-cd villa-booking-platform/frontend
-
-# 2. Run setup (does EVERYTHING automatically)
+cd villa-booking-platform/backend
 ./setup.sh
-
-# 3. Press Enter when asked to start the server
-
-# ✅ Done! Frontend is running at http://localhost:5173
+# Press Enter → Backend runs at http://localhost:9000
 ```
 
-**Total commands needed: 6** (3 for backend, 3 for frontend) 🎉
-
-**Both servers auto-start!** No manual configuration needed.
+**Frontend Only:**
+```bash
+cd villa-booking-platform/frontend
+./setup.sh
+# Press Enter → Frontend runs at http://localhost:5173
+```
 
 ### Optional Configuration
 
