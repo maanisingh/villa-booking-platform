@@ -1,27 +1,61 @@
 # ⚡ START HERE
 
-## For New Users - 3 Steps:
+## For New Users - Copy & Paste These Commands:
 
+### Step 1: Clone the repository
 ```bash
-# 1. Clone (download the code)
 git clone https://github.com/maanisingh/villa-booking-platform.git
+```
 
-# 2. Enter the project folder
+### Step 2: Enter the project folder
+```bash
 cd villa-booking-platform
+```
 
-# 3. Run setup (YOU MUST BE INSIDE villa-booking-platform folder!)
+### Step 3: Run setup (COPY THIS EXACTLY - Don't use Tab key!)
+```bash
 ./setup-all.sh
 ```
 
-## IMPORTANT:
-- You **MUST** be inside the `villa-booking-platform` folder
-- Check by running: `pwd` (should show: `/path/to/villa-booking-platform`)
-- If not, run: `cd villa-booking-platform`
+Press **Enter** when asked → Both servers start automatically! ✅
 
-## If Terminal Asks "Pick a File":
-Just type: `./setup-all.sh` and press Enter
+---
 
-That's it! Press Enter when asked and both servers start! ✅
+## ⚠️ IMPORTANT NOTES:
+
+### If Terminal Shows Multiple Files to Choose:
+**DO NOT use Tab autocomplete!**
+
+Just **type or copy/paste** the full command:
+```bash
+./setup-all.sh
+```
+
+### Check You're in the Right Folder:
+Run this:
+```bash
+pwd
+```
+Should show: `/path/to/villa-booking-platform`
+
+### Wrong Folder?
+Run this:
+```bash
+cd villa-booking-platform
+```
+
+---
+
+## 🌐 After Setup Completes:
+
+Open your browser and go to:
+```
+http://localhost:5173
+```
+
+Login with:
+- **Admin:** `admin@gmail.com` / `123`
+- **Owner:** `testowner@villa.com` / `password123`
 
 ---
 
