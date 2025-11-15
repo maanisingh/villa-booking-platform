@@ -13,6 +13,13 @@ The Villa Booking Platform login page will open!
 
 ## 🔑 Step 2: Login
 
+**✨ The database is already populated with test data!**
+
+When you ran `./setup-all.sh`, it automatically created:
+- ✅ 1 Admin user
+- ✅ 1 Test Owner
+- ✅ 5 Sample Villas (assigned to the test owner)
+
 ### Option A: Login as Admin
 
 1. Select **"Admin"** role
@@ -21,8 +28,8 @@ The Villa Booking Platform login page will open!
 4. Click **Login**
 
 You'll see the **Admin Dashboard** with:
-- Villa management
-- Owner management
+- Villa management (5 sample villas already loaded!)
+- Owner management (test owner already created!)
 - Booking oversight
 - Analytics
 - Platform integrations
@@ -35,7 +42,12 @@ You'll see the **Admin Dashboard** with:
 4. Click **Login**
 
 You'll see the **Owner Dashboard** with:
-- My Villas
+- My Villas (5 villas already there!)
+  - Sunset Beach Villa - $450/night
+  - Mountain View Retreat - $320/night
+  - Modern City Loft - $380/night
+  - Tropical Garden Villa - $290/night
+  - Luxury Cliff Villa - $650/night
 - Bookings
 - Calendar
 - Revenue analytics

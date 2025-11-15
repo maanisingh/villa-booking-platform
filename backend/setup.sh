@@ -71,6 +71,11 @@ else
         echo "   Start it with: sudo systemctl start mongod"
     else
         echo "✅ MongoDB is running"
+
+        # Seed database with test data
+        echo ""
+        echo "6️⃣  Seeding database with test data..."
+        npm run seed
     fi
 fi
 echo ""
