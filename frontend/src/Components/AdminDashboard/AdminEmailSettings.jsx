@@ -21,7 +21,7 @@ import {
   faPaperPlane,
   faExclamationTriangle,
 } from "@fortawesome/free-solid-svg-icons";
-import axios from "axios";
+import API from "../../services/api";
 
 const theme = {
   primary: "#157feb",
@@ -93,7 +93,7 @@ const AdminEmailSettings = () => {
     setLoading(true);
     try {
       const token = localStorage.getItem("authToken");
-      const res = await axios.get("/api/email/config", {
+      const res = await API.get("/api/email/config", {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -153,7 +153,7 @@ const AdminEmailSettings = () => {
         throw new Error("Password is required for new configuration");
       }
 
-      const response = await axios.post("/api/email/configure", formData, {
+      const response = await API.post("/api/email/configure", formData, {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -178,7 +178,7 @@ const AdminEmailSettings = () => {
 
     try {
       const token = localStorage.getItem("authToken");
-      const response = await axios.post(
+      const response = await API.post(
         "/api/email/test",
         { toEmail: testEmail },
         { headers: { Authorization: `Bearer ${token}` } }

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import API from "../services/api";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -52,7 +52,7 @@ const Login = () => {
     setLoading(true);
 
     try {
-      const response = await axios.post(
+      const response = await API.post(
         api,
         { email, password },
         { headers: { "Content-Type": "application/json" } }

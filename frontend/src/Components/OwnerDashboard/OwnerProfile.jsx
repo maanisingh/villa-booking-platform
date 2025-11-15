@@ -13,7 +13,7 @@ import {
 } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faLock, faCamera } from "@fortawesome/free-solid-svg-icons";
-import axios from "axios";
+import API from "../../services/api";
 
 const API_BASE = "/api"; // ✅ Make sure backend is running on port 9000
 
@@ -75,7 +75,7 @@ const OwnerProfile = () => {
         setLoading(true);
         const token = getToken();
 
-        const res = await axios.get(`${API_BASE}/owner/profile`, {
+        const res = await API.get(`${API_BASE}/owner/profile`, {
           headers: { Authorization: `Bearer ${token}` },
         });
 
@@ -143,7 +143,7 @@ const OwnerProfile = () => {
       formData.append("phoneNumber", phone);
       if (avatarFile) formData.append("image", avatarFile);
 
-      const res = await axios.put(`${API_BASE}/owner/profile`, formData, {
+      const res = await API.put(`${API_BASE}/owner/profile`, formData, {
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "multipart/form-data",
@@ -185,7 +185,7 @@ const OwnerProfile = () => {
 
     try {
       setPasswordLoading(true);
-      const res = await axios.put(
+      const res = await API.put(
         `${API_BASE}/owner/change-password`,
         { currentPassword, newPassword, confirmPassword },
         {

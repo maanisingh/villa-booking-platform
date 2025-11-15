@@ -26,7 +26,7 @@ import {
   FaCheck,
   FaEnvelope
 } from "react-icons/fa";
-import axios from "axios";
+import API from "../../services/api";
 import EmailConfigForm from "../Shared/EmailConfigForm";
 
 const AdminPlatformSettings = () => {
@@ -117,7 +117,7 @@ const AdminPlatformSettings = () => {
   const fetchEmailConfig = async () => {
     try {
       const token = localStorage.getItem("authToken");
-      const res = await axios.get("/api/email/config", {
+      const res = await API.get("/api/email/config", {
         headers: { Authorization: `Bearer ${token}` }
       });
       setEmailConfig(res.data.data);
@@ -139,7 +139,7 @@ const AdminPlatformSettings = () => {
     try {
       showAlert("info", "Starting sync for all active integrations...");
       // Would call admin endpoint to trigger sync for all users
-      // await axios.post("/api/admin/sync-all");
+      // await API.post("/api/admin/sync-all");
       showAlert("success", "Sync initiated for all active integrations");
     } catch (error) {
       showAlert("danger", "Failed to initiate sync");

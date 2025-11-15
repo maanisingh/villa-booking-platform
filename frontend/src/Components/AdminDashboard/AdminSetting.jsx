@@ -33,7 +33,7 @@ import {
   FaHotel,
   FaHome,
 } from "react-icons/fa";
-import axios from "axios";
+import API from "../../services/api";
 
 const theme = {
   primary: "#157feb",
@@ -125,7 +125,7 @@ const AdminSetting = () => {
     setLoading(true);
     try {
       const token = localStorage.getItem("authToken");
-      const response = await axios.get("/api/admin/platform-credentials", {
+      const response = await API.get("/api/admin/platform-credentials", {
         headers: { Authorization: `Bearer ${token}` }
       });
       setCredentials(response.data.data || []);
@@ -216,7 +216,7 @@ const AdminSetting = () => {
           updateData.credentials = credentialForm.credentials;
         }
 
-        await axios.put(
+        await API.put(
           `/api/admin/platform-credentials/${editingCredential._id}`,
           updateData,
           config
@@ -224,7 +224,7 @@ const AdminSetting = () => {
         showAlert("success", "Credentials updated successfully!");
       } else {
         // Create new credential
-        await axios.post(
+        await API.post(
           "/api/admin/platform-credentials",
           credentialForm,
           config
@@ -247,7 +247,7 @@ const AdminSetting = () => {
 
     try {
       const token = localStorage.getItem("authToken");
-      await axios.delete(`/api/admin/platform-credentials/${credentialId}`, {
+      await API.delete(`/api/admin/platform-credentials/${credentialId}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       showAlert("success", "Credentials deleted successfully!");

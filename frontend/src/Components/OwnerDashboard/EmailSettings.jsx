@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import API from "../../services/api";
 
 const EmailSettings = () => {
   const [config, setConfig] = useState(null);
@@ -62,7 +62,7 @@ const EmailSettings = () => {
     try {
       setLoading(true);
       const token = localStorage.getItem("authToken");
-      const response = await axios.get("/api/email/config", {
+      const response = await API.get("/api/email/config", {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -155,7 +155,7 @@ const EmailSettings = () => {
         delete payload.smtpPassword;
       }
 
-      const response = await axios.post("/api/email/configure", payload, {
+      const response = await API.post("/api/email/configure", payload, {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -187,7 +187,7 @@ const EmailSettings = () => {
 
     try {
       const token = localStorage.getItem("authToken");
-      const response = await axios.post("/api/email/test", formData, {
+      const response = await API.post("/api/email/test", formData, {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -212,7 +212,7 @@ const EmailSettings = () => {
       const token = localStorage.getItem("authToken");
       const endpoint = config?.enabled ? "/api/email/disable" : "/api/email/enable";
 
-      const response = await axios.post(endpoint, {}, {
+      const response = await API.post(endpoint, {}, {
         headers: { Authorization: `Bearer ${token}` },
       });
 

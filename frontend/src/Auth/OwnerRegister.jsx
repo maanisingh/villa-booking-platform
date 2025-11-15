@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import API from "../services/api";
 
 const OwnerRegister = () => {
   const navigate = useNavigate();
@@ -64,14 +64,14 @@ const OwnerRegister = () => {
     setError("");
 
     try {
-      const response = await axios.post(
+      const response = await API.post(
         "/api/owners",
         {
           name: formData.name,
           email: formData.email,
           password: formData.password,
           phoneNumber: formData.phoneNumber,
-          assignedVilla: formData.address,
+          // Note: assignedVilla is omitted - will be assigned by admin later
           status: "Pending",
         },
         { headers: { "Content-Type": "application/json" } }

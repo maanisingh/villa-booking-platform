@@ -36,16 +36,28 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // ✅ Enable CORS (Cross-Origin Resource Sharing)
+// Support both hardcoded origins and environment variable
+const allowedOrigins = [
+  "http://localhost:5173",
+  "http://localhost:3010",
+  "http://127.0.0.1:3000",
+  process.env.FRONTEND_URL, // Allow dynamic frontend URL from env
+].filter(Boolean); // Remove undefined values
+
 app.use(
   cors({
-    origin: [
-      "http://localhost:5173",
-      "http://localhost:3010",
-      "http://127.0.0.1:3000",
-      "https://villas.alexandratechlab.com"
-    ], // your frontend URL(s)
+    origin: function (origin, callback) {
+      // Allow requests with no origin (like mobile apps or curl requests)
+      if (!origin) return callback(null, true);
+
+      if (allowedOrigins.indexOf(origin) !== -1 || process.env.NODE_ENV === 'development') {
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
     methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
-    credentials: true, // allow cookies / tokens if needed
+    credentials: true,
   })
 );
 
@@ -66,6 +78,16 @@ mongoose
   .catch((err) => console.log("❌ MongoDB Error:", err));
 
 // ====== Routes ====== //
+// Health Check Endpoint (for monitoring services like Render)
+app.get('/api/health', (req, res) => {
+  res.status(200).json({
+    status: 'healthy',
+    timestamp: new Date().toISOString(),
+    database: mongoose.connection.readyState === 1 ? 'connected' : 'disconnected',
+    uptime: process.uptime()
+  });
+});
+
 app.use("/api", loginRoutes);
 app.use("/api/bookings",bookingRoutes );
 app.use("/api/users", userRoutes);

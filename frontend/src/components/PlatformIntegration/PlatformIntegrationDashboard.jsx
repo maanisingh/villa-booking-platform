@@ -51,7 +51,7 @@ const PlatformIntegrationDashboard = () => {
   const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
   const token = localStorage.getItem('token');
 
-  const api = axios.create({
+  const api = API.create({
     baseURL: API_URL,
     headers: {
       'Authorization': `Bearer ${token}`,

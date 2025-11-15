@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from "react";
-import axios from "axios";
+import API from "../../services/api";
 import {
   Button,
   Table,
@@ -62,7 +62,7 @@ const OwnerMyBooking = () => {
         console.error("Owner ID not found in localStorage");
         return;
       }
-      const res = await axios.get(`${VILLAS_API_URL}/my-villa/${ownerId}`);
+      const res = await API.get(`${VILLAS_API_URL}/my-villa/${ownerId}`);
       if (res.data.success && res.data.villas) {
         setVillas(res.data.villas);
       }
@@ -75,7 +75,7 @@ const OwnerMyBooking = () => {
   // Fetch All Bookings
   const fetchBookings = async () => {
     try {
-      const res = await axios.get(API_URL);
+      const res = await API.get(API_URL);
       const data = res.data.data || [];
       const formatted = data.map((b, i) => ({
         ...b,
@@ -142,7 +142,7 @@ const OwnerMyBooking = () => {
         bookingSource: "Manual",
         syncToPlatforms: newBooking.syncToPlatforms,
       };
-      const res = await axios.post(API_URL, payload);
+      const res = await API.post(API_URL, payload);
       const added = res.data.data;
       added.readableId = `BK${String(bookings.length + 1).padStart(3, "0")}`;
       setBookings((prev) => [...prev, added]);
@@ -164,7 +164,7 @@ const OwnerMyBooking = () => {
   const handleDeleteBooking = async (id) => {
     if (!window.confirm("Are you sure you want to delete this booking?")) return;
     try {
-      await axios.delete(`${API_URL}/${id}`);
+      await API.delete(`${API_URL}/${id}`);
       setBookings((prev) => prev.filter((b) => b._id !== id));
       alert("🗑️ Booking deleted successfully.");
     } catch (err) {
@@ -204,7 +204,7 @@ const OwnerMyBooking = () => {
         totalFare: Number(selectedBooking.totalFare),
         syncToPlatforms: selectedBooking.syncToPlatforms,
       };
-      const res = await axios.put(`${API_URL}/${selectedBooking._id}`, payload);
+      const res = await API.put(`${API_URL}/${selectedBooking._id}`, payload);
       const updated = res.data.data;
       setBookings((prev) => prev.map((b) => (b._id === updated._id ? updated : b)));
       setShowEditModal(false);

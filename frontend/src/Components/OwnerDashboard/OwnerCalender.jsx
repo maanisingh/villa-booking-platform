@@ -23,7 +23,7 @@ import {
   faCalendarAlt,
   faListUl,
 } from "@fortawesome/free-solid-svg-icons";
-import axios from "axios";
+import API from "../../services/api";
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
 import "react-big-calendar/lib/css/react-big-calendar.css";
@@ -74,7 +74,7 @@ const OwnerCalendar = () => {
   // ✅ Fetch Bookings
   const fetchBookings = async () => {
     try {
-      const res = await axios.get(API_URL);
+      const res = await API.get(API_URL);
       const data = res.data.data || res.data;
       const formatted = data.map((b) => ({
         ...b,
@@ -112,7 +112,7 @@ const OwnerCalendar = () => {
       status: "Confirmed",
     };
     try {
-      const res = await axios.post(API_URL, payload);
+      const res = await API.post(API_URL, payload);
       const added = res.data.data;
       const newBooking = {
         id: added._id,
@@ -145,7 +145,7 @@ const OwnerCalendar = () => {
       status: "Confirmed",
     };
     try {
-      const res = await axios.put(`${API_URL}/${selectedBooking.id}`, payload);
+      const res = await API.put(`${API_URL}/${selectedBooking.id}`, payload);
       const updated = res.data.data || res.data;
       setBookings((prev) =>
         prev.map((b) =>
@@ -172,7 +172,7 @@ const OwnerCalendar = () => {
   const handleDeleteBooking = async (booking) => {
     if (!window.confirm("Are you sure you want to delete this booking?")) return;
     try {
-      await axios.delete(`${API_URL}/${booking.id}`);
+      await API.delete(`${API_URL}/${booking.id}`);
       setBookings(bookings.filter((b) => b.id !== booking.id));
       alert("🗑️ Booking deleted successfully!");
     } catch (error) {

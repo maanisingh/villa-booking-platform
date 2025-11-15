@@ -23,7 +23,7 @@ import {
   faTrash,
   faSync,
 } from "@fortawesome/free-solid-svg-icons";
-import axios from "axios";
+import API from "../../services/api";
 
 // 🎨 Theme Colors
 const theme = {
@@ -364,7 +364,7 @@ const AdminOwners = () => {
   const fetchOwners = async () => {
     setLoading(true);
     try {
-      const res = await axios.get(BASE_URL);
+      const res = await API.get(BASE_URL);
       if (res.data.success) setOwners(res.data.data);
       else setMessage({ type: "danger", text: res.data.message });
     } catch (err) {
@@ -385,10 +385,10 @@ const AdminOwners = () => {
   const handleSave = async (formData) => {
     try {
       if (isEditMode) {
-        await axios.put(`${BASE_URL}/${currentOwner._id}`, formData);
+        await API.put(`${BASE_URL}/${currentOwner._id}`, formData);
         setMessage({ type: "success", text: "Owner updated successfully." });
       } else {
-        await axios.post(`${BASE_URL}/create`, formData);
+        await API.post(`${BASE_URL}/create`, formData);
         setMessage({ type: "success", text: "Owner added successfully." });
       }
       setShowModal(false);
@@ -405,7 +405,7 @@ const AdminOwners = () => {
   const handleDelete = async (id) => {
     if (window.confirm("Are you sure you want to delete this owner?")) {
       try {
-        await axios.delete(`${BASE_URL}/${id}`);
+        await API.delete(`${BASE_URL}/${id}`);
         setMessage({ type: "success", text: "Owner deleted successfully." });
         fetchOwners();
       } catch (err) {

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Container, Form, Button, Alert, Card, Nav, Row, Col, Table, Badge, Modal } from "react-bootstrap";
-import axios from "axios";
+import API from "../../services/api";
 import { FaHome, FaConciergeBell, FaEdit, FaMapMarkerAlt, FaDollarSign } from "react-icons/fa";
 
 const OwnerMyVillaInfo = () => {
@@ -38,7 +38,7 @@ const OwnerMyVillaInfo = () => {
         setOwnerId(currentOwnerId);
 
         const url = `/api/v1/villas/my-villa/${currentOwnerId}`;
-        const response = await axios.get(url);
+        const response = await API.get(url);
 
         if (response.data.success) {
           setVillas(response.data.villas);
@@ -82,7 +82,7 @@ const OwnerMyVillaInfo = () => {
 
     try {
       const url = `/api/v1/villas/my-villa/${selectedVilla._id}`;
-      const response = await axios.put(url, {
+      const response = await API.put(url, {
         ...formData,
         ownerId: ownerId // Include ownerId for permission check
       });

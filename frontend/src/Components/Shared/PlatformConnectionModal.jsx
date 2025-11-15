@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Modal, Button, Form, Alert } from "react-bootstrap";
 import { FaAirbnb, FaHotel, FaHome } from "react-icons/fa";
-import axios from "axios";
+import API from "../../services/api";
 
 const PlatformConnectionModal = ({ show, onHide, platform, onSuccess }) => {
   const [credentials, setCredentials] = useState({});
@@ -42,7 +42,7 @@ const PlatformConnectionModal = ({ show, onHide, platform, onSuccess }) => {
 
     try {
       const token = localStorage.getItem("authToken");
-      const response = await axios.post(
+      const response = await API.post(
         "/api/platforms/connect",
         {
           platform,

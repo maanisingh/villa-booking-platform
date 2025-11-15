@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import API from "../../services/api";
 
 const PlatformIntegration = () => {
   const [platforms, setPlatforms] = useState([]);
@@ -46,7 +46,7 @@ const PlatformIntegration = () => {
     try {
       setLoading(true);
       const token = localStorage.getItem("authToken");
-      const response = await axios.get("/api/platforms", {
+      const response = await API.get("/api/platforms", {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -96,7 +96,7 @@ const PlatformIntegration = () => {
 
     try {
       const token = localStorage.getItem("authToken");
-      const response = await axios.post(
+      const response = await API.post(
         "/api/platforms/test-connection",
         {
           platform: selectedPlatform,
@@ -145,7 +145,7 @@ const PlatformIntegration = () => {
 
     try {
       const token = localStorage.getItem("authToken");
-      const response = await axios.post(
+      const response = await API.post(
         "/api/platforms/connect",
         {
           platform: selectedPlatform,
@@ -184,7 +184,7 @@ const PlatformIntegration = () => {
 
     try {
       const token = localStorage.getItem("authToken");
-      const response = await axios.delete(`/api/platforms/${platformId}`, {
+      const response = await API.delete(`/api/platforms/${platformId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
 

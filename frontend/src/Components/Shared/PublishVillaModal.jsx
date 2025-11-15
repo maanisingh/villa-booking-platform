@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Modal, Button, Form, Alert, ListGroup, Badge, Spinner } from "react-bootstrap";
 import { FaAirbnb, FaHotel, FaHome, FaCheck, FaTimes, FaExclamationTriangle } from "react-icons/fa";
-import axios from "axios";
+import API from "../../services/api";
 
 const PublishVillaModal = ({ show, onHide, villa, onSuccess }) => {
   const [availablePlatforms, setAvailablePlatforms] = useState([]);
@@ -24,7 +24,7 @@ const PublishVillaModal = ({ show, onHide, villa, onSuccess }) => {
       const token = localStorage.getItem("authToken");
 
       // Get publishing status for the villa
-      const statusRes = await axios.get(
+      const statusRes = await API.get(
         `/api/publishing/villas/${villa._id}/publishing-status`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -93,7 +93,7 @@ const PublishVillaModal = ({ show, onHide, villa, onSuccess }) => {
     try {
       const token = localStorage.getItem("authToken");
 
-      const response = await axios.post(
+      const response = await API.post(
         `/api/publishing/villas/${villa._id}/publish-multiple`,
         { platforms: selectedPlatforms },
         { headers: { Authorization: `Bearer ${token}` } }

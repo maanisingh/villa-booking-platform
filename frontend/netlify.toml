@@ -8,7 +8,16 @@
   # Functions directory (if using Netlify Functions)
   # functions = "netlify/functions"
 
-# Redirect all requests to index.html for client-side routing
+# Proxy API requests to backend (Render deployment)
+# Set BACKEND_URL in Netlify environment variables
+# Example: BACKEND_URL=https://your-app.onrender.com
+[[redirects]]
+  from = "/api/*"
+  to = "${BACKEND_URL}/:splat"
+  status = 200
+  force = true
+
+# Redirect all other requests to index.html for client-side routing
 [[redirects]]
   from = "/*"
   to = "/index.html"

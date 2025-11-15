@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Form, Button, Alert, Row, Col, Card, Badge } from "react-bootstrap";
 import { FaEnvelope, FaCheck, FaTimes, FaCog, FaInfoCircle } from "react-icons/fa";
-import axios from "axios";
+import API from "../../services/api";
 
 const EmailConfigForm = ({ onSuccess, onCancel, initialConfig = null }) => {
   const [formData, setFormData] = useState({
@@ -111,7 +111,7 @@ const EmailConfigForm = ({ onSuccess, onCancel, initialConfig = null }) => {
         throw new Error("Password is required for new configuration");
       }
 
-      const response = await axios.post(
+      const response = await API.post(
         "/api/email/configure",
         formData,
         { headers: { Authorization: `Bearer ${token}` } }
@@ -142,7 +142,7 @@ const EmailConfigForm = ({ onSuccess, onCancel, initialConfig = null }) => {
 
     try {
       const token = localStorage.getItem("authToken");
-      const response = await axios.post(
+      const response = await API.post(
         "/api/email/test",
         { toEmail: testEmail },
         { headers: { Authorization: `Bearer ${token}` } }

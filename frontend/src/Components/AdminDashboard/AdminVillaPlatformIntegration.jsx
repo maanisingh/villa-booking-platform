@@ -24,7 +24,7 @@ import {
   FaTimes,
   FaCog
 } from "react-icons/fa";
-import axios from "axios";
+import API from "../../services/api";
 import { useNavigate } from "react-router-dom";
 
 const AdminVillaPlatformIntegration = () => {
@@ -85,9 +85,9 @@ const AdminVillaPlatformIntegration = () => {
 
       // Fetch villas, owners, and integrations
       const [villasRes, ownersRes, integrationsRes] = await Promise.all([
-        axios.get("/api/v1/villas", config),
-        axios.get("/api/owners", config),
-        axios.get("/api/admin/villa-integrations", config)
+        API.get("/api/v1/villas", config),
+        API.get("/api/owners", config),
+        API.get("/api/admin/villa-integrations", config)
       ]);
 
       setVillas(villasRes.data.data || villasRes.data || []);
@@ -130,7 +130,7 @@ const AdminVillaPlatformIntegration = () => {
       setLoadingCredentials(true);
       try {
         const token = localStorage.getItem("authToken");
-        const response = await axios.get(`/api/admin/platform-credentials/platform/${platform}`, {
+        const response = await API.get(`/api/admin/platform-credentials/platform/${platform}`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         setSavedCredentials(response.data.data || []);
@@ -166,7 +166,7 @@ const AdminVillaPlatformIntegration = () => {
       }
 
       const token = localStorage.getItem("authToken");
-      const response = await axios.post(
+      const response = await API.post(
         "/api/admin/villa-integrations",
         {
           villaId: formData.villaId,
@@ -196,7 +196,7 @@ const AdminVillaPlatformIntegration = () => {
 
     try {
       const token = localStorage.getItem("authToken");
-      await axios.delete(`/api/admin/villa-integrations/${integrationId}`, {
+      await API.delete(`/api/admin/villa-integrations/${integrationId}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
 
@@ -213,7 +213,7 @@ const AdminVillaPlatformIntegration = () => {
       const token = localStorage.getItem("authToken");
       showAlert("info", "Starting sync...");
 
-      await axios.post(
+      await API.post(
         `/api/admin/villa-integrations/${integrationId}/sync`,
         {},
         { headers: { Authorization: `Bearer ${token}` } }

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Card, Button, Form, Badge, Alert, Modal, Tab, Tabs, Spinner, Table } from "react-bootstrap";
 import { FaAirbnb, FaHotel, FaHome, FaSync, FaCheck, FaTimes, FaPlus, FaTrash, FaCog, FaEnvelope } from "react-icons/fa";
-import axios from "axios";
+import API from "../../services/api";
 
 const OwnerPlatformSettings = () => {
   const [platforms, setPlatforms] = useState([]);
@@ -45,7 +45,7 @@ const OwnerPlatformSettings = () => {
     setLoading(true);
     try {
       const token = localStorage.getItem("authToken");
-      const res = await axios.get("/api/platforms", {
+      const res = await API.get("/api/platforms", {
         headers: { Authorization: `Bearer ${token}` }
       });
       setPlatforms(res.data.data || []);
@@ -60,7 +60,7 @@ const OwnerPlatformSettings = () => {
   const fetchEmailConfig = async () => {
     try {
       const token = localStorage.getItem("authToken");
-      const res = await axios.get("/api/email/config", {
+      const res = await API.get("/api/email/config", {
         headers: { Authorization: `Bearer ${token}` }
       });
       setEmailConfig(res.data.data);
@@ -72,7 +72,7 @@ const OwnerPlatformSettings = () => {
   const fetchSyncHistory = async () => {
     try {
       const token = localStorage.getItem("authToken");
-      const res = await axios.get("/api/sync/history?limit=10", {
+      const res = await API.get("/api/sync/history?limit=10", {
         headers: { Authorization: `Bearer ${token}` }
       });
       setSyncHistory(res.data.data?.logs || []);
@@ -90,7 +90,7 @@ const OwnerPlatformSettings = () => {
     setSyncing(true);
     try {
       const token = localStorage.getItem("authToken");
-      const res = await axios.post(
+      const res = await API.post(
         `/api/platforms/${platform}/sync`,
         {},
         { headers: { Authorization: `Bearer ${token}` } }
@@ -116,7 +116,7 @@ const OwnerPlatformSettings = () => {
     setSyncing(true);
     try {
       const token = localStorage.getItem("authToken");
-      const res = await axios.post(
+      const res = await API.post(
         "/api/platforms/sync-all",
         {},
         { headers: { Authorization: `Bearer ${token}` } }
@@ -141,7 +141,7 @@ const OwnerPlatformSettings = () => {
   const handleConnect = async () => {
     try {
       const token = localStorage.getItem("authToken");
-      const res = await axios.post(
+      const res = await API.post(
         "/api/platforms/connect",
         connectionForm,
         { headers: { Authorization: `Bearer ${token}` } }
@@ -171,7 +171,7 @@ const OwnerPlatformSettings = () => {
 
     try {
       const token = localStorage.getItem("authToken");
-      await axios.delete(`/api/platforms/${platformId}`, {
+      await API.delete(`/api/platforms/${platformId}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
 
@@ -186,7 +186,7 @@ const OwnerPlatformSettings = () => {
   const handleEmailConfig = async () => {
     try {
       const token = localStorage.getItem("authToken");
-      const res = await axios.post(
+      const res = await API.post(
         "/api/email/configure",
         emailForm,
         { headers: { Authorization: `Bearer ${token}` } }
@@ -207,7 +207,7 @@ const OwnerPlatformSettings = () => {
 
     try {
       const token = localStorage.getItem("authToken");
-      await axios.post(
+      await API.post(
         "/api/email/test",
         { toEmail: testEmail },
         { headers: { Authorization: `Bearer ${token}` } }
