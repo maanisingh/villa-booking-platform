@@ -73,6 +73,8 @@ Make sure you have:
 
 ## 🚀 First-Time Developer Workflow
 
+### Backend Setup
+
 ```bash
 # 1. Clone the repository
 git clone https://github.com/maanisingh/villa-booking-platform.git
@@ -83,18 +85,40 @@ cd villa-booking-platform/backend
 
 # 3. Press Enter when asked to start the server
 
-# ✅ Done! Server is running at http://localhost:9000
+# ✅ Done! Backend is running at http://localhost:9000
 ```
 
-**Total commands needed: 3** 🎉
+### Frontend Setup
 
-Optional configuration (only if needed):
 ```bash
-# Edit environment variables (optional)
+# 1. Open a new terminal
+cd villa-booking-platform/frontend
+
+# 2. Run setup (does EVERYTHING automatically)
+./setup.sh
+
+# 3. Press Enter when asked to start the server
+
+# ✅ Done! Frontend is running at http://localhost:5173
+```
+
+**Total commands needed: 6** (3 for backend, 3 for frontend) 🎉
+
+**Both servers auto-start!** No manual configuration needed.
+
+### Optional Configuration
+
+```bash
+# Backend: Edit environment variables (optional)
+cd backend
 nano .env
 
 # Ensure MongoDB is running (if not already)
 sudo systemctl start mongod
+
+# Frontend: Edit backend URL (optional)
+cd frontend
+nano .env
 ```
 
 ## 🔄 Daily Development Workflow

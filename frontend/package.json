@@ -7,7 +7,9 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "setup": "bash setup.sh",
+    "start:dev": "bash start-dev.sh"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^7.1.0",
