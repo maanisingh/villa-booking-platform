@@ -7,29 +7,23 @@ A comprehensive villa booking management system with multi-platform integration 
 ### First-Time Setup (After Cloning from GitHub)
 
 ```bash
-# Run the automated setup script
 ./setup.sh
-
-# OR use npm
-npm run setup
 ```
 
-This will:
-- Check Node.js and npm installation
-- Install all dependencies
-- Create `.env` file from template
-- Verify MongoDB installation
+**That's it!** One command does everything:
+- ✅ Checks Node.js and npm installation
+- ✅ Installs all dependencies automatically
+- ✅ Creates `.env` file from template
+- ✅ Verifies MongoDB installation
+- ✅ **Offers to start the server immediately**
 
-### Start Development Server
+Just press **Enter** when prompted and you're running!
+
+### Start Development Server (Subsequent Times)
 
 ```bash
-# Quick start (recommended)
 ./start-dev.sh
-
-# OR use npm
-npm run start:dev
-
-# OR use nodemon directly
+# OR
 npm run dev
 ```
 
@@ -209,26 +203,23 @@ pm2 startup
 
 1. **Clone the repository**
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/maanisingh/villa-booking-platform.git
    cd villa-booking-platform/backend
    ```
 
-2. **Run setup**
+2. **Run setup and start**
    ```bash
    ./setup.sh
+   # Press Enter when asked to start
    ```
 
-3. **Configure environment**
-   ```bash
-   nano .env
-   ```
+3. **Start developing!**
+   - The server is now running
+   - Make changes to files
+   - Nodemon will auto-reload on save
+   - No manual restart needed!
 
-4. **Start developing**
-   ```bash
-   ./start-dev.sh
-   ```
-
-5. **Make changes** - nodemon will auto-reload
+**Total setup time: < 2 minutes** ⚡
 
 ## 🤝 Contributing
 

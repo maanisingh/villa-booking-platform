@@ -75,23 +75,34 @@ else
 fi
 echo ""
 
-# Step 6: Summary
+# Step 6: Auto-start option
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "🎉 Setup Complete!"
 echo ""
-echo "📝 Next Steps:"
-echo "   1. Edit .env file with your configuration:"
-echo "      nano .env"
+echo "🚀 Ready to start the backend server!"
 echo ""
-echo "   2. Ensure MongoDB is running:"
-echo "      sudo systemctl start mongod"
+read -p "Start the development server now? (Y/n) " -n 1 -r
+echo
 echo ""
-echo "   3. Start the development server:"
-echo "      ./start-dev.sh"
-echo "      OR"
-echo "      npm run dev"
-echo ""
-echo "   4. Access the API at:"
-echo "      http://localhost:9000"
-echo ""
-echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+
+if [[ ! $REPLY =~ ^[Nn]$ ]]; then
+    # Auto-start
+    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    echo "🚀 Starting backend server..."
+    echo "📍 Server will run on http://localhost:9000"
+    echo "🔄 Using nodemon for auto-reload"
+    echo ""
+    echo "Press Ctrl+C to stop the server"
+    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    echo ""
+    npm run dev
+else
+    echo "📝 To start the server later, run:"
+    echo "   ./start-dev.sh"
+    echo "   OR"
+    echo "   npm run dev"
+    echo ""
+    echo "📍 Server will run on http://localhost:9000"
+    echo ""
+    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+fi

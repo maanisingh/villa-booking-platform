@@ -2,48 +2,44 @@
 
 ## For New Developers (After Cloning from GitHub)
 
-### Option 1: Automated Setup (Recommended) ⚡
+### One-Command Setup ⚡ (Recommended)
 
 ```bash
-# Navigate to backend
+cd backend
+./setup.sh
+```
+
+**That's it!** The script will:
+- ✅ Check prerequisites (Node.js, npm)
+- ✅ Install all dependencies automatically
+- ✅ Create `.env` configuration file
+- ✅ Check MongoDB status
+- ✅ **Ask if you want to start the server immediately**
+
+Just press **Enter** when prompted and the backend starts automatically!
+
+### Alternative: Manual Control
+
+If you want more control:
+
+```bash
 cd backend
 
-# Run the setup script
+# Setup without auto-starting
 ./setup.sh
+# (Answer 'n' when asked to start)
 
-# Start the server
+# Start later when ready
 ./start-dev.sh
 ```
 
-### Option 2: Using npm Scripts
-
-```bash
-# Navigate to backend
-cd backend
-
-# Setup (first time only)
-npm run setup
-
-# Start development server
-npm run start:dev
-```
-
-### Option 3: Manual Setup
+### Using npm Scripts (Optional)
 
 ```bash
 cd backend
-
-# Install dependencies
-npm install
-
-# Copy environment file
-cp .env.example .env
-
-# Edit configuration (optional)
-nano .env
-
-# Start development server
-npm run dev
+npm run setup     # Does everything, asks to auto-start
+npm run start:dev # Quick start (checks & auto-installs if needed)
+npm run dev       # Direct start (assumes setup done)
 ```
 
 ## 🎯 What Each Script Does
@@ -79,23 +75,26 @@ Make sure you have:
 
 ```bash
 # 1. Clone the repository
-git clone <repository-url>
-cd villa-booking-platform
+git clone https://github.com/maanisingh/villa-booking-platform.git
+cd villa-booking-platform/backend
 
-# 2. Setup backend
-cd backend
+# 2. Run setup (does EVERYTHING automatically)
 ./setup.sh
 
-# 3. Configure environment (edit as needed)
+# 3. Press Enter when asked to start the server
+
+# ✅ Done! Server is running at http://localhost:9000
+```
+
+**Total commands needed: 3** 🎉
+
+Optional configuration (only if needed):
+```bash
+# Edit environment variables (optional)
 nano .env
 
-# 4. Ensure MongoDB is running
+# Ensure MongoDB is running (if not already)
 sudo systemctl start mongod
-
-# 5. Start development
-./start-dev.sh
-
-# Server is now running at http://localhost:9000
 ```
 
 ## 🔄 Daily Development Workflow
