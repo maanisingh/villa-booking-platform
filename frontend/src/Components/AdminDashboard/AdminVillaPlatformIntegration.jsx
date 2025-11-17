@@ -85,9 +85,9 @@ const AdminVillaPlatformIntegration = () => {
 
       // Fetch villas, owners, and integrations
       const [villasRes, ownersRes, integrationsRes] = await Promise.all([
-        API.get("/api/v1/villas", config),
-        API.get("/api/owners", config),
-        API.get("/api/admin/villa-integrations", config)
+        API.get("/v1/villas", config),
+        API.get("/owners", config),
+        API.get("/admin/villa-integrations", config)
       ]);
 
       setVillas(villasRes.data.data || villasRes.data || []);
@@ -130,7 +130,7 @@ const AdminVillaPlatformIntegration = () => {
       setLoadingCredentials(true);
       try {
         const token = localStorage.getItem("authToken");
-        const response = await API.get(`/api/admin/platform-credentials/platform/${platform}`, {
+        const response = await API.get(`/admin/platform-credentials/platform/${platform}`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         setSavedCredentials(response.data.data || []);
@@ -167,7 +167,7 @@ const AdminVillaPlatformIntegration = () => {
 
       const token = localStorage.getItem("authToken");
       const response = await API.post(
-        "/api/admin/villa-integrations",
+        "/admin/villa-integrations",
         {
           villaId: formData.villaId,
           ownerId: formData.ownerId,
@@ -196,7 +196,7 @@ const AdminVillaPlatformIntegration = () => {
 
     try {
       const token = localStorage.getItem("authToken");
-      await API.delete(`/api/admin/villa-integrations/${integrationId}`, {
+      await API.delete(`/admin/villa-integrations/${integrationId}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
 
@@ -214,7 +214,7 @@ const AdminVillaPlatformIntegration = () => {
       showAlert("info", "Starting sync...");
 
       await API.post(
-        `/api/admin/villa-integrations/${integrationId}/sync`,
+        `/admin/villa-integrations/${integrationId}/sync`,
         {},
         { headers: { Authorization: `Bearer ${token}` } }
       );
