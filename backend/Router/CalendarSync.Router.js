@@ -23,7 +23,7 @@ router.get("/calendar/export/:villaId", auth, async (req, res) => {
     // Verify villa ownership
     const villa = await Villa.findOne({
       _id: villaId,
-      ownerId: req.user.id
+      owner: req.user.id
     });
 
     if (!villa) {
@@ -70,7 +70,7 @@ router.post("/calendar/import", auth, async (req, res) => {
     // Verify villa ownership
     const villa = await Villa.findOne({
       _id: villaId,
-      ownerId: req.user.id
+      owner: req.user.id
     });
 
     if (!villa) {
@@ -127,7 +127,7 @@ router.post("/calendar/sync-all", auth, async (req, res) => {
     // Verify villa ownership
     const villa = await Villa.findOne({
       _id: villaId,
-      ownerId: req.user.id
+      owner: req.user.id
     });
 
     if (!villa) {
@@ -171,7 +171,7 @@ router.post("/calendar/check-conflicts", auth, async (req, res) => {
     // Verify villa ownership
     const villa = await Villa.findOne({
       _id: villaId,
-      ownerId: req.user.id
+      owner: req.user.id
     });
 
     if (!villa) {
@@ -219,7 +219,7 @@ router.post("/calendar/update-availability", auth, async (req, res) => {
     // Verify villa ownership
     const villa = await Villa.findOne({
       _id: villaId,
-      ownerId: req.user.id
+      owner: req.user.id
     });
 
     if (!villa) {
@@ -300,7 +300,7 @@ router.get("/calendar/feed-url/:villaId", auth, async (req, res) => {
     // Verify villa ownership
     const villa = await Villa.findOne({
       _id: villaId,
-      ownerId: req.user.id
+      owner: req.user.id
     });
 
     if (!villa) {

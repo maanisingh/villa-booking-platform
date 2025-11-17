@@ -151,9 +151,13 @@ class CalendarSyncService {
               continue;
             }
 
+            // Get villa to retrieve owner info
+            const villa = await Villa.findById(villaId);
+
             // Transform iCal event to booking
             const bookingData = {
               villaId,
+              ownerId: villa?.owner || null,
               externalBookingId: event.uid || `${source}_${uuidv4()}`,
               guestName: this.extractGuestName(event.summary) || 'iCal Guest',
               startDate: new Date(event.start),
@@ -164,7 +168,9 @@ class CalendarSyncService {
               lastSyncTime: new Date(),
               autoSynced: true,
               notes: event.description || '',
-              iCalUID: event.uid
+              iCalUID: event.uid,
+              totalFare: 0, // Default value for iCal imports
+              currency: 'USD'
             };
 
             // Check if booking already exists

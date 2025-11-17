@@ -15,11 +15,11 @@ const Login = () => {
   const roleCredentials = {
     Admin: {
       redirect: "/admin-dashboard",
-      api: "/api/admin/login",
+      api: "/admin/login",
     },
     Owner: {
       redirect: "/owner-dashboard",
-      api: "/api/owner/login",
+      api: "/owner/login",
     },
   };
 
@@ -31,7 +31,7 @@ const Login = () => {
   const fillAdminCredentials = () => {
     setSelectedRole("Admin");
     setEmail("admin@gmail.com");
-    setPassword("123");
+    setPassword("admin123");
   };
 
   const fillOwnerCredentials = () => {
